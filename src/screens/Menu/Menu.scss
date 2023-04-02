@@ -2,14 +2,25 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  position: absolute;
+  inset: 0 0 0 0;
+}
+
+.bg0 {
+  background: url("./bg/bg1.png") center center no-repeat;
   background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .bg1 {
-  background: url("./bg/bg1.png") center center;
+  background: url("./bg/bg2.png") center center no-repeat;
+  background-size: cover;
 }
 
-.bg2 {
-  background: url("./bg/bg2.png") center center;
+.menu-block {
+  position: fixed;
+  bottom: 10rem;
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }

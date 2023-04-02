@@ -1,0 +1,23 @@
+#menu-button {
+    font-size: 3rem !important;
+    color: #0f172a;
+    background-color: rgba($color: #ffffff, $alpha: 0.4);
+    box-shadow: none;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border: 2px solid #0f172a;
+    line-height: 1;
+
+    &:focus {
+        outline: 2px solid #475569;
+    }
+
+    &:hover {
+        background-color: rgba($color: #ffffff, $alpha: 0.8);
+    }
+
+    &:disabled {
+        border-color: #334155;
+        color: #334155;
+        background-color: rgba($color: #334155, $alpha: 0.6);
+    }
+}
