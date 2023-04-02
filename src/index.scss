@@ -1,3 +1,5 @@
+@import "./app/styles/variables.scss";
+
 @font-face {
   font-family: "Neucha";
   src: url("../public/fonts/Neucha-Regular.ttf");
@@ -21,6 +23,7 @@
 
 * {
   font-family: "Neucha", system-ui, Avenir, Helvetica, Arial, sans-serif !important;
+  outline: none;
 }
 
 #root {
