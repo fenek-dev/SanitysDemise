@@ -1,8 +1,9 @@
 @import "./app/styles/variables.scss";
+@import "./app/styles/mui.scss";
 
 @font-face {
   font-family: "Neucha";
-  src: url("../public/fonts/Neucha-Regular.ttf");
+  src: url("/fonts/Neucha-Regular.ttf");
 }
 :root {
   font-family: "Neucha", system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -24,6 +25,7 @@
 * {
   font-family: "Neucha", system-ui, Avenir, Helvetica, Arial, sans-serif !important;
   outline: none;
+  font-size: 2rem;
 }
 
 #root {
