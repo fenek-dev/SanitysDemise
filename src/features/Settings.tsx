@@ -36,7 +36,7 @@ export const Settings = ({ close }: SettingsProps) => {
           <MenuItem value="rus">Русский</MenuItem>
         </Select>
       </Box>
-      <Button sx={{ mt: "2rem" }} onClick={close}>
+      <Button sx={{ mt: "4rem" }} onClick={close}>
         Close
       </Button>
     </Box>

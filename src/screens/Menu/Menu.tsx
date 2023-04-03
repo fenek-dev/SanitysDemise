@@ -2,7 +2,8 @@ import "./Menu.scss";
 import { Modal } from "@/shared/atoms/Modal/Modal";
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Settings } from "@/features/Settings/Settings";
+import { Settings } from "@/features/Settings";
+import { NewGame } from "@/features/NewGame";
 
 console.log(
   "[Menu.tsx]",
@@ -10,8 +11,8 @@ console.log(
 );
 
 function Menu() {
-  const [bg, setBg] = useState(1);
-  const [open, setOpen] = useState(false);
+  const [bg, setBg] = useState(0);
+  const [open, setOpen] = useState<string | null>(null);
 
   useEffect(() => {
     const timeout = window.setInterval(() => {
@@ -25,25 +26,28 @@ function Menu() {
   return (
     <div className={`Menu bg${bg}`}>
       <div className="menu-block">
-        <Button variant="outlined" onClick={() => setOpen(true)}>
+        <Button variant="outlined" onClick={() => setOpen("new-game")}>
           New Game
         </Button>
         <Button variant="outlined" disabled>
           Continue
         </Button>
-        <Button variant="outlined" onClick={() => setOpen(true)}>
+        <Button variant="outlined" onClick={() => setOpen("settings")}>
           Settings
         </Button>
         <Button variant="outlined">Quit</Button>
       </div>
       <Modal
-        open={open}
+        open={Boolean(open)}
         sx={{
           position: "fixed",
           inset: "auto 2rem auto auto",
         }}
       >
-        <Settings close={() => setOpen(false)} />
+        <>
+          {open === "new-game" && <NewGame close={() => setOpen(null)} />}
+          {open === "settings" && <Settings close={() => setOpen(null)} />}
+        </>
       </Modal>
     </div>
   );
