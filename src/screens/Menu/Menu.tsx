@@ -26,16 +26,26 @@ function Menu() {
   return (
     <div className={`full bg${bg}`}>
       <div className="menu-block">
-        <Button variant="outlined" onClick={() => setOpen("new-game")}>
-          New Game
+        <Button
+          className="img-button start-btn"
+          variant="outlined"
+          onClick={() => setOpen("new-game")}
+        >
+          <span>New Game</span>
         </Button>
-        <Button variant="outlined" disabled>
-          Continue
+        <Button className="img-button continue-btn" variant="outlined" disabled>
+          <span>Continue</span>
         </Button>
-        <Button variant="outlined" onClick={() => setOpen("settings")}>
-          Settings
+        <Button
+          className="img-button settings-btn"
+          variant="outlined"
+          onClick={() => setOpen("settings")}
+        >
+          <span>Settings</span>
         </Button>
-        <Button variant="outlined">Quit</Button>
+        <Button className="img-button quit-btn" variant="outlined">
+          <span>Quit</span>
+        </Button>
       </div>
       <Modal
         open={Boolean(open)}

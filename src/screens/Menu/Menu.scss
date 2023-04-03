@@ -16,3 +16,19 @@
   flex-direction: column;
   gap: 2rem;
 }
+
+.start-btn:before {
+  background-image: url("../../app/assets/buttons/start-btn.png");
+}
+
+.continue-btn:before {
+  background-image: url("../../app/assets/buttons/continue-btn.png");
+}
+
+.quit-btn:before {
+  background-image: url("../../app/assets/buttons/quit-btn.png");
+}
+
+.settings-btn:before {
+  background-image: url("../../app/assets/buttons/settings-btn.png");
+}

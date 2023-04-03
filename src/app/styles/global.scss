@@ -12,3 +12,46 @@
     position: absolute;
     inset: 0 0 0 0;
 }
+
+.img-button {
+    position: relative !important;
+    font-weight: bold !important;
+    overflow: hidden !important;
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        inset: 0 0 0 0;
+    }
+    &:before {
+        transform: scale(1);
+        background-size: cover;
+        transition: 0.2s ease transform;
+        z-index: 1;
+    }
+
+    &:after {
+        background-color: #000;
+        opacity: 0.16;
+        z-index: 2;
+    }
+
+    &:disabled::after {
+        opacity: 0.56;
+    }
+
+    &:hover:before {
+        transform: scale(1.3);
+    }
+    span {
+        transition: 0.2s ease transform;
+        z-index: 10;
+        font-size: 3rem;
+    }
+
+    &:hover {
+        span {
+            transform: scale(1.2);
+        }
+    }
+}
