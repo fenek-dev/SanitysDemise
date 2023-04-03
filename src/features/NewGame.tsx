@@ -9,9 +9,9 @@ interface NewGameProps {
 export const NewGame = ({ close }: NewGameProps) => {
   return (
     <Box display="flex" flexDirection="column" minWidth="100%" gap="2rem">
-      <Slot to="/character" />
-      <Slot to="/character" />
-      <Slot to="/character" />
+      <Slot to="/character" onClick={close} />
+      <Slot to="/character" onClick={close} />
+      <Slot to="/character" onClick={close} />
       <Button sx={{ mt: "4rem" }} onClick={close}>
         Close
       </Button>

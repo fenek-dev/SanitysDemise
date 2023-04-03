@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Settings } from "@/features/Settings";
 import { NewGame } from "@/features/NewGame";
+import { motion } from "framer-motion";
 
 console.log(
   "[Menu.tsx]",
@@ -23,8 +24,16 @@ function Menu() {
       window.clearInterval(timeout);
     };
   }, []);
+
   return (
-    <div className={`full bg${bg}`}>
+    <motion.div
+      className={`full bg${bg}`}
+      key="menu"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="menu-block">
         <Button
           className="img-button start-btn"
@@ -48,18 +57,24 @@ function Menu() {
         </Button>
       </div>
       <Modal
-        open={Boolean(open)}
+        open={open === "new-game"}
         sx={{
           position: "fixed",
           inset: "auto 2rem auto auto",
         }}
       >
-        <>
-          {open === "new-game" && <NewGame close={() => setOpen(null)} />}
-          {open === "settings" && <Settings close={() => setOpen(null)} />}
-        </>
+        <NewGame close={() => setOpen(null)} />
       </Modal>
-    </div>
+      <Modal
+        open={open === "settings"}
+        sx={{
+          position: "fixed",
+          inset: "auto 2rem auto auto",
+        }}
+      >
+        <Settings close={() => setOpen(null)} />
+      </Modal>
+    </motion.div>
   );
 }
 

@@ -13,8 +13,8 @@ export const Valtarin: CharacterType = {
   defaultStats: {
     charisma: 5,
     dexterity: 6,
-    intelligence: 8,
     faith: 15,
+    intelligence: 8,
     perception: 4,
     strength: 4,
   },
