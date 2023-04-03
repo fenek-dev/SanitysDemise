@@ -12,6 +12,15 @@
     }
 }
 
+.MuiCard-root {
+    border-radius: var(--radius) !important;
+    border: 0.3rem solid var(--main-color) !important;
+}
+
+.MuiCardMedia-root {
+    border-bottom: 0.3rem solid var(--main-color) !important;
+}
+
 .MuiPaper-root {
     background-color: rgba(var(--bg-color-rgb), 0.6) !important;
 }

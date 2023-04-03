@@ -1,11 +1,18 @@
 import { Box, BoxProps, Button } from "@mui/material";
 import React from "react";
 import "./Slot.scss";
+import { Link } from "react-router-dom";
 
-export const Slot = (props: BoxProps) => {
+interface SlotProps extends BoxProps {
+  to: string;
+}
+
+export const Slot = ({ to, ...props }: SlotProps) => {
   return (
-    <Button className="border slot" {...Slot}>
-      Empty
-    </Button>
+    <Link to={to}>
+      <Button className="border slot" {...Slot}>
+        Empty
+      </Button>
+    </Link>
   );
 };

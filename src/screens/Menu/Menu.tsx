@@ -24,7 +24,7 @@ function Menu() {
     };
   }, []);
   return (
-    <div className={`Menu bg${bg}`}>
+    <div className={`full bg${bg}`}>
       <div className="menu-block">
         <Button variant="outlined" onClick={() => setOpen("new-game")}>
           New Game

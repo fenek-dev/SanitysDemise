@@ -1,9 +1,14 @@
+import { ChooseCharacter } from "@/screens/ChooseCharacter/ChooseCharacter";
 import Menu from "@/screens/Menu/Menu";
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: "/",
     element: <Menu />,
+  },
+  {
+    path: "/character",
+    element: <ChooseCharacter />,
   },
 ]);
