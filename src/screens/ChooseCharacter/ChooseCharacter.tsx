@@ -7,8 +7,16 @@ import { ALL_CHARACTERS } from "@/entities/characters";
 import _ from "lodash";
 import { motion } from "framer-motion";
 import { redirect } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { CharacterType } from "@/entities/characters/types";
+import { chooseCharacter } from "@/app/store/character/character.slice";
 
 export const ChooseCharacter = () => {
+  const dispatch = useDispatch();
+
+  const onChoose = (character: CharacterType) => () => {
+    dispatch(chooseCharacter(character));
+  };
   return (
     <motion.div
       className="full choose-character-bg"
@@ -29,7 +37,11 @@ export const ChooseCharacter = () => {
         justifyContent="center"
       >
         {_.map(ALL_CHARACTERS, (character) => (
-          <CharacterCard character={character} to="/devourer">
+          <CharacterCard
+            character={character}
+            to="/devourer"
+            onClick={onChoose(character)}
+          >
             <Typography
               gutterBottom
               variant="h3"

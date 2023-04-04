@@ -17,17 +17,28 @@ import { Link } from "react-router-dom";
 interface CardProps {
   to: string;
   devourer: DevourerType;
+  onClick?: () => void;
 }
 
 export const DevourerCard = ({
   children,
   devourer,
+  onClick,
   to,
 }: React.PropsWithChildren<CardProps>) => {
   return (
-    <Link to={to}>
+    <Link to={to} onClick={onClick}>
       <CardComponent
-        sx={{ width: "20rem", cursor: "pointer", position: "relative" }}
+        sx={{
+          width: "20rem",
+          cursor: "pointer",
+          position: "relative",
+          transform: "scale(1)",
+          transition: "0.3s ease-out",
+          ":hover": {
+            transform: "scale(1.2)",
+          },
+        }}
       >
         <CardMedia sx={{ height: "30rem" }} image={devourer.cardImage} />
         <CardContent

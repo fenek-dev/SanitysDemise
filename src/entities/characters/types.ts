@@ -4,16 +4,20 @@ export interface CharacterType {
   name: string;
   shortDescription: React.ReactNode;
   cardImage: string;
-  defaultStats: BasicStats;
+  defaultSkillStats: BasicSkillStats;
   difficulty: keyof typeof DIFFICULTIES;
-  defaultMainStats: {
-    hp: number;
-    sp: number;
-  };
+  defaultMainStats: BasicMainStats;
   defaultEffects: unknown[];
 }
 
-export interface BasicStats {
+export interface BasicMainStats {
+  hp: number;
+  sp: number;
+  maxHp: number;
+  maxSp: number;
+}
+
+export interface BasicSkillStats {
   strength: number;
   dexterity: number;
   intelligence: number;

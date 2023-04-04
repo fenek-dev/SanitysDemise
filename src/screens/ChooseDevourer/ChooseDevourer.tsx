@@ -8,8 +8,16 @@ import _ from "lodash";
 import { motion } from "framer-motion";
 import { ALL_DEVOURERS } from "@/entities/devourers";
 import { DevourerCard } from "@/shared/molecules/DevourerCard/DevourerCard";
+import { useDispatch } from "react-redux";
+import { startNewGame } from "@/app/store/character/character.slice";
+import { DevourerType } from "@/entities/devourers/type";
 
 export const ChooseDevourer = () => {
+  const dispatch = useDispatch();
+
+  const onChoose = (devourer: DevourerType) => () => {
+    dispatch(startNewGame(devourer));
+  };
   return (
     <motion.div
       className="full choose-devourer-bg"
@@ -30,7 +38,11 @@ export const ChooseDevourer = () => {
         justifyContent="center"
       >
         {_.map(ALL_DEVOURERS, (devourer) => (
-          <DevourerCard devourer={devourer} to="/game">
+          <DevourerCard
+            devourer={devourer}
+            to="/game"
+            onClick={onChoose(devourer)}
+          >
             <Typography
               gutterBottom
               variant="h3"

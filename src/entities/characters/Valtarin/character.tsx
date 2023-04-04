@@ -5,15 +5,17 @@ import { DIFFICULTIES } from "@/entities/maps/difficulties";
 
 export const Valtarin: CharacterType = {
   name: "Valtarin",
-  shortDescription: "Valtarin",
+  shortDescription: "[No Effects]",
   cardImage,
   difficulty: DIFFICULTIES.hell,
   defaultEffects: [],
   defaultMainStats: {
     hp: 15,
     sp: 40,
+    maxHp: 15,
+    maxSp: 40,
   },
-  defaultStats: {
+  defaultSkillStats: {
     strength: 4,
     dexterity: 6,
     intelligence: 8,

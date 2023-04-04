@@ -16,20 +16,27 @@ import { Link } from "react-router-dom";
 interface CardProps {
   character: CharacterType;
   to: string;
+  onClick?: () => void;
 }
 
 export const CharacterCard = ({
   children,
   character,
+  onClick,
   to,
 }: React.PropsWithChildren<CardProps>) => {
   return (
-    <Link to={to}>
+    <Link to={to} onClick={onClick}>
       <CardComponent
         sx={{
           width: "20rem",
           cursor: "pointer",
           position: "relative",
+          transform: "scale(1)",
+          transition: "0.3s ease-out",
+          ":hover": {
+            transform: "scale(1.2)",
+          },
         }}
       >
         <CardMedia sx={{ height: "30rem" }} image={character.cardImage} />
@@ -60,7 +67,7 @@ export const CharacterCard = ({
             className="russo"
           >
             {_.map(
-              _.entries(character.defaultStats),
+              _.entries(character.defaultSkillStats),
               ([statname, stat], index) => {
                 const firstCol = (index & 1) === 0;
                 return (
@@ -75,7 +82,8 @@ export const CharacterCard = ({
                   >
                     <span style={{ fontSize: "1.5rem" }}>
                       {STATS_MAP[statname].short}
-                    </span>{" "}
+                    </span>
+                    {":"}
                     <span className="russo">{stat}</span>
                   </Box>
                 );
@@ -91,7 +99,7 @@ export const CharacterCard = ({
             width="100%"
           >
             {_.map(
-              _.entries(character.defaultMainStats),
+              _.dropRight(_.entries(character.defaultMainStats), 2),
               ([statname, stat]) => (
                 <Box
                   textAlign="center"
@@ -100,12 +108,14 @@ export const CharacterCard = ({
                   borderRight="0"
                   className="russo"
                 >
-                  <span>{statname}</span> {stat}
+                  <span>{statname}</span> : {stat}
                 </Box>
               )
             )}
           </Box>
-          <Box mt="1rem">{children}</Box>
+          <Box mt="1rem" textAlign="center">
+            {children}
+          </Box>
           <Box mt="auto">{DIFFICULTIES_MAP[character.difficulty]}</Box>
         </CardContent>
       </CardComponent>
