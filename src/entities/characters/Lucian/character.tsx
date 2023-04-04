@@ -1,21 +1,28 @@
+import { Box, Typography } from "@mui/material";
 import { CharacterType } from "../types";
-import defaultImage from "./Lucian_default.png";
+import cardImage from "./Lucian_card.png";
 
 export const Lucian: CharacterType = {
   name: "Lucian",
-  shortDescription: "Lucian",
-  image: defaultImage,
+  shortDescription: (
+    <Box>
+      <Typography variant="h4" textAlign="center" color="var(--easy-color)">
+        [Easy]
+      </Typography>
+    </Box>
+  ),
+  cardImage,
   defaultEffects: [],
   defaultMainStats: {
     hp: 30,
     sp: 30,
   },
   defaultStats: {
-    charisma: 10,
-    dexterity: 10,
-    faith: 10,
-    intelligence: 10,
-    perception: 10,
     strength: 10,
+    dexterity: 10,
+    intelligence: 10,
+    charisma: 10,
+    faith: 10,
+    perception: 10,
   },
 };

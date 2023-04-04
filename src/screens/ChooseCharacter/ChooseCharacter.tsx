@@ -17,6 +17,9 @@ export const ChooseCharacter = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
+      <Typography variant="h1" textAlign="center" mt="3rem">
+        Choose your character
+      </Typography>
       <Box
         display="flex"
         gap="5rem"

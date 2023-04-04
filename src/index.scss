@@ -2,10 +2,6 @@
 @import "./app/styles/global.scss";
 @import "./app/styles/mui.scss";
 
-@font-face {
-  font-family: "Neucha";
-  src: url("/fonts/Neucha-Regular.ttf");
-}
 :root {
   font-family: "Neucha", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -27,6 +23,7 @@
   font-family: "Neucha", system-ui, Avenir, Helvetica, Arial, sans-serif !important;
   outline: none;
   font-size: 2rem;
+  user-select: none;
 }
 
 #root {

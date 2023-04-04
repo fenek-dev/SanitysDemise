@@ -1,3 +1,20 @@
+@font-face {
+    font-family: "Neucha";
+    src: url("/fonts/Neucha-Regular.ttf");
+}
+
+@font-face {
+    font-family: "RussoOne";
+    src: url("/fonts/RussoOne-Regular.ttf");
+}
+
+.russo {
+    font-family: RussoOne !important;
+    > * {
+        font-family: RussoOne !important;
+    }
+}
+
 .border {
     border-radius: var(--radius) !important;
     border: 0.3rem solid var(--main-color) !important;

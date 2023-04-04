@@ -13,12 +13,8 @@
 }
 
 .MuiCard-root {
-    border-radius: var(--radius) !important;
+    border-radius: 10px !important;
     border: 0.3rem solid var(--main-color) !important;
-}
-
-.MuiCardMedia-root {
-    border-bottom: 0.3rem solid var(--main-color) !important;
 }
 
 .MuiPaper-root {

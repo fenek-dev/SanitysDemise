@@ -1,7 +1,7 @@
 export interface CharacterType {
   name: string;
-  shortDescription: string;
-  image: string;
+  shortDescription: React.ReactNode;
+  cardImage: string;
   defaultStats: BasicStats;
   defaultMainStats: {
     hp: number;
