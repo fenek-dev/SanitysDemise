@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Settings } from "@/features/Settings";
 import { NewGame } from "@/features/NewGame";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 console.log(
   "[Menu.tsx]",
@@ -35,13 +36,15 @@ function Menu() {
       transition={{ duration: 0.5 }}
     >
       <div className="menu-block">
-        <Button
-          className="img-button start-btn"
-          variant="outlined"
-          onClick={() => setOpen("new-game")}
-        >
-          <span>New Game</span>
-        </Button>
+        <Link to="/character">
+          <Button
+            className="img-button start-btn"
+            variant="outlined"
+            onClick={() => setOpen("new-game")}
+          >
+            <span>New Game</span>
+          </Button>
+        </Link>
         <Button className="img-button continue-btn" variant="outlined" disabled>
           <span>Continue</span>
         </Button>
@@ -56,15 +59,6 @@ function Menu() {
           <span>Quit</span>
         </Button>
       </div>
-      <Modal
-        open={open === "new-game"}
-        sx={{
-          position: "fixed",
-          inset: "auto 2rem auto auto",
-        }}
-      >
-        <NewGame close={() => setOpen(null)} />
-      </Modal>
       <Modal
         open={open === "settings"}
         sx={{

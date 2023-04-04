@@ -18,7 +18,7 @@ export const ChooseCharacter = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <Typography variant="h1" textAlign="center" mt="3rem">
+      <Typography variant="h1" textAlign="center" mt="3rem" fontWeight="medium">
         Choose your character
       </Typography>
       <Box
@@ -44,7 +44,13 @@ export const ChooseCharacter = () => {
           </CharacterCard>
         ))}
       </Box>
-      <Box display="flex" justifyContent="center">
+      <Box
+        display="flex"
+        justifyContent="center"
+        position="absolute"
+        top="5rem"
+        left="3rem"
+      >
         <Link to="/">
           <Button>Back</Button>
         </Link>

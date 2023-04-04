@@ -19,7 +19,7 @@ export const ChooseDevourer = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <Typography variant="h1" textAlign="center" mt="3rem">
+      <Typography variant="h1" textAlign="center" mt="3rem" fontWeight="medium">
         Choose your devourer
       </Typography>
       <Box
@@ -45,7 +45,13 @@ export const ChooseDevourer = () => {
           </DevourerCard>
         ))}
       </Box>
-      <Box display="flex" justifyContent="center">
+      <Box
+        display="flex"
+        justifyContent="center"
+        position="absolute"
+        top="5rem"
+        left="3rem"
+      >
         <Link to="/character">
           <Button>Back</Button>
         </Link>
