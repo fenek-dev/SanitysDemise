@@ -1,4 +1,5 @@
 import { ChooseCharacter } from "@/screens/ChooseCharacter/ChooseCharacter";
+import { ChooseDevourer } from "@/screens/ChooseDevourer/ChooseDevourer";
 import Menu from "@/screens/Menu/Menu";
 import { AnimatePresence } from "framer-motion";
 import { Route, Routes, createHashRouter, useLocation } from "react-router-dom";
@@ -10,6 +11,7 @@ export const RoutesList = () => {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Menu />} />
         <Route path="/character" element={<ChooseCharacter />} />
+        <Route path="/devourer" element={<ChooseDevourer />} />
       </Routes>
     </AnimatePresence>
   );

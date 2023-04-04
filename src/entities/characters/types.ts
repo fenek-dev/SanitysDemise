@@ -1,8 +1,11 @@
+import { DIFFICULTIES } from "../maps/difficulties";
+
 export interface CharacterType {
   name: string;
   shortDescription: React.ReactNode;
   cardImage: string;
   defaultStats: BasicStats;
+  difficulty: keyof typeof DIFFICULTIES;
   defaultMainStats: {
     hp: number;
     sp: number;
