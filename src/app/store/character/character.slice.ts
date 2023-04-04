@@ -3,6 +3,7 @@ import {
   EmptyMainStats,
   EmptySkillStats,
 } from "@/entities/characters";
+import { Lucian } from "@/entities/characters/Lucian/character";
 import {
   BasicMainStats,
   BasicSkillStats,
@@ -22,7 +23,7 @@ export interface CharacterState {
 }
 
 const initialState: CharacterState = {
-  selectedCharacter: EmptyCharacter,
+  selectedCharacter: Lucian,
   currentMainStats: EmptyMainStats,
   currentSkillStats: EmptySkillStats,
   effects: [],

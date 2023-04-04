@@ -19,6 +19,10 @@ export const EmptySkillStats = {
   faith: 0,
   perception: 0,
 };
+
+export const EmptyCharacterImageMap = {
+  norm: "",
+};
 export const EmptyCharacter: CharacterType = {
   name: "",
   shortDescription: "",
@@ -27,4 +31,5 @@ export const EmptyCharacter: CharacterType = {
   defaultEffects: [],
   defaultMainStats: EmptyMainStats,
   defaultSkillStats: EmptySkillStats,
+  imageMap: EmptyCharacterImageMap,
 };

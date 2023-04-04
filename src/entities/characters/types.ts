@@ -8,6 +8,7 @@ export interface CharacterType {
   difficulty: keyof typeof DIFFICULTIES;
   defaultMainStats: BasicMainStats;
   defaultEffects: unknown[];
+  imageMap: CharacterImageMap;
 }
 
 export interface BasicMainStats {
@@ -24,4 +25,8 @@ export interface BasicSkillStats {
   charisma: number;
   faith: number;
   perception: number;
+}
+
+export interface CharacterImageMap {
+  norm: string;
 }

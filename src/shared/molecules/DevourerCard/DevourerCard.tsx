@@ -59,7 +59,9 @@ export const DevourerCard = ({
             },
           }}
         >
-          <Box mt="1rem">{children}</Box>
+          <Box mt="1rem" textAlign="center">
+            {children}
+          </Box>
           <Box mt="auto">{DIFFICULTIES_MAP[devourer.difficulty]}</Box>
         </CardContent>
       </CardComponent>

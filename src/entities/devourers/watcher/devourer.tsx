@@ -4,7 +4,7 @@ import cardImage from "./watcher_card.png";
 
 export const Watcher: DevourerType = {
   name: "Watcher",
-  shortDescription: "Wait for victim's death. No effects",
+  shortDescription: "[No Effects]",
   cardImage,
   defaultEffects: [],
   difficulty: DIFFICULTIES.easy,

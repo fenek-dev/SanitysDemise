@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { CharacterType } from "../types";
 import cardImage from "./Valtarin_card.png";
+import defaultImage from "./Valtarin_default.png";
 import { DIFFICULTIES } from "@/entities/maps/difficulties";
 
 export const Valtarin: CharacterType = {
@@ -22,5 +23,8 @@ export const Valtarin: CharacterType = {
     charisma: 5,
     faith: 15,
     perception: 4,
+  },
+  imageMap: {
+    norm: defaultImage,
   },
 };

@@ -8,6 +8,7 @@ import {
   Card as CardComponent,
   CardContent,
   CardMedia,
+  Typography,
 } from "@mui/material";
 import _ from "lodash";
 import React from "react";
@@ -80,10 +81,9 @@ export const CharacterCard = ({
                     margin="0 !important"
                     borderRight="0"
                   >
-                    <span style={{ fontSize: "1.5rem" }}>
+                    <Typography variant="button">
                       {STATS_MAP[statname].short}
-                    </span>
-                    {":"}
+                    </Typography>
                     <span className="russo">{stat}</span>
                   </Box>
                 );
@@ -91,24 +91,39 @@ export const CharacterCard = ({
             )}
           </Box>
           <Box
-            display="grid"
-            gridTemplateColumns="repeat(2, 1fr)"
+            display="flex"
+            flexDirection="column"
             padding="0"
             marginLeft="0 !important"
             marginTop="1rem"
             width="100%"
+            position="absolute"
+            top="1rem"
           >
             {_.map(
               _.dropRight(_.entries(character.defaultMainStats), 2),
-              ([statname, stat]) => (
+              ([statname, stat], index) => (
                 <Box
                   textAlign="center"
                   margin="0 !important"
                   textTransform="uppercase"
                   borderRight="0"
                   className="russo"
+                  sx={{ transform: "translateX(-12px)" }}
+                  lineHeight={1}
                 >
-                  <span>{statname}</span> : {stat}
+                  <span>
+                    <span
+                      style={{
+                        fontSize: "3rem",
+                        color:
+                          index === 0 ? "var(--hp-color)" : "var(--sp-color)",
+                      }}
+                    >
+                      {stat}
+                    </span>
+                    <Typography variant="caption">{statname}</Typography>
+                  </span>
                 </Box>
               )
             )}
