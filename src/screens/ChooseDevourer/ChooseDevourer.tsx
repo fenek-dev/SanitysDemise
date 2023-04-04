@@ -30,7 +30,7 @@ export const ChooseDevourer = () => {
         justifyContent="center"
       >
         {_.map(ALL_DEVOURERS, (devourer) => (
-          <DevourerCard devourer={devourer} to="/">
+          <DevourerCard devourer={devourer} to="/game">
             <Typography
               gutterBottom
               variant="h3"
