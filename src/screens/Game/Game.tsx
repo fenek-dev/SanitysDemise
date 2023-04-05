@@ -1,3 +1,4 @@
+import { Panel } from "@/widgets/Panel/Panel";
 import { Sidebar } from "@/widgets/Sidebar/Sidebar";
 import { Toolbar } from "@/widgets/Toolbar/Toolbar";
 import { Grid } from "@mui/material";
@@ -17,21 +18,40 @@ export const Game = () => {
         className="full"
         container
         display="grid"
-        gridTemplateColumns="10fr 16rem"
-        gridTemplateRows="1fr 13fr 3fr"
+        gridTemplateColumns="10fr calc(16rem + 6px)"
+        gridTemplateRows="1fr 16fr"
         gridTemplateAreas={`"toolbar toolbar"
-          "main sidebar"
-          "content sidebar"`}
+          "main sidebar" "panel panel"`}
       >
         <Grid gridArea="toolbar">
           <Toolbar />
         </Grid>
         <Grid gridArea="main">hello</Grid>
-        <Grid gridArea="sidebar">
+        <Grid
+          gridArea="sidebar"
+          bgcolor="rgba(0, 0, 0, 0.6)"
+          border="3px solid var(--main-color)"
+          borderTop="none"
+        >
           <Sidebar />
         </Grid>
-        <Grid gridArea="content">hello</Grid>
+        <Grid gridArea="panel">
+          <Panel />
+        </Grid>
       </Grid>
+      {/* <Grid
+        className="full"
+        container
+        zIndex="10"
+        display="grid"
+        pt="4rem"
+        gridTemplateColumns="10fr calc(16rem + 6px)"
+        gridTemplateRows="2fr 1fr"
+        gridTemplateAreas={`". sidebar"
+          "panel panel"`}
+      >
+        
+      </Grid> */}
     </motion.div>
   );
 };

@@ -1,6 +1,7 @@
 import { BasicMainStats, CharacterType } from "@/entities/characters/types";
 import { Box, Card, CardMedia, Typography } from "@mui/material";
 import React from "react";
+import "./Avatar.scss";
 
 interface AvatarProps {
   character: CharacterType;
@@ -11,23 +12,14 @@ export const Avatar = ({ character, currentMainStats }: AvatarProps) => {
   console.log(character);
 
   return (
-    <Box mt="auto">
-      <Box
-        display="grid"
-        gridTemplateColumns="1fr 1fr"
-        textAlign="center"
-        borderTop="2px solid var(--main-color)"
-      >
-        <Box borderRight="2px solid var(--main-color)">
-          <span style={{ color: "var(--hp-color)" }}>
-            {currentMainStats.hp}
-          </span>
+    <Box color="var(--white-main-color)" border="3px solid var(--main-color)">
+      <Box display="grid" gridTemplateColumns="1fr 1fr" textAlign="center">
+        <Box borderRight="2px solid var(--main-color)" className="hp-bg">
+          <span className="main-stat hp">{currentMainStats.hp}</span>
           <Typography variant="caption">hp</Typography>
         </Box>
-        <Box>
-          <span style={{ color: "var(--sp-color)" }}>
-            {currentMainStats.sp}
-          </span>
+        <Box className="sp-bg">
+          <span className="main-stat sp">{currentMainStats.sp}</span>
           <Typography variant="caption">sp</Typography>
         </Box>
       </Box>
@@ -36,11 +28,11 @@ export const Avatar = ({ character, currentMainStats }: AvatarProps) => {
           width: "16rem",
           height: "16rem",
           position: "relative",
-          border: "2px solid var(--main-color) !important",
+          border: "none !important",
+          borderTop: "2px solid var(--main-color) !important",
           borderRadius: "0 !important",
           background: "none !important",
           boxShadow: "none !important",
-          borderLeft: "0 !important",
         }}
       >
         <CardMedia

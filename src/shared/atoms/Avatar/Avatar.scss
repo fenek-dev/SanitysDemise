@@ -1,0 +1,22 @@
+.hp-bg {
+    background: url("./bg/hp_bg.png") center center no-repeat;
+    background-size: cover;
+}
+.sp-bg {
+    background: url("./bg/sp_bg.png") center center no-repeat;
+    background-size: cover;
+}
+
+.main-stat {
+    font-weight: bold;
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.hp {
+    color: var(--hp-color);
+}
+
+.sp {
+    color: var(--sp-color);
+}
