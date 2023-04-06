@@ -1,3 +1,4 @@
+import { Avatar } from "@/widgets/Avatar/Avatar";
 import { Panel } from "@/widgets/Panel/Panel";
 import { Sidebar } from "@/widgets/Sidebar/Sidebar";
 import { Toolbar } from "@/widgets/Toolbar/Toolbar";
@@ -21,7 +22,7 @@ export const Game = () => {
         gridTemplateColumns="10fr calc(16rem + 6px)"
         gridTemplateRows="1fr 16fr"
         gridTemplateAreas={`"toolbar toolbar"
-          "main sidebar" "panel panel"`}
+          "main sidebar"`}
       >
         <Grid gridArea="toolbar">
           <Toolbar />
@@ -32,26 +33,16 @@ export const Game = () => {
           bgcolor="rgba(0, 0, 0, 0.6)"
           border="3px solid var(--main-color)"
           borderTop="none"
+          display="flex"
+          flexDirection="column"
         >
           <Sidebar />
+          <Avatar />
         </Grid>
-        <Grid gridArea="panel">
+        {/* <Grid gridArea="panel">
           <Panel />
-        </Grid>
+        </Grid> */}
       </Grid>
-      {/* <Grid
-        className="full"
-        container
-        zIndex="10"
-        display="grid"
-        pt="4rem"
-        gridTemplateColumns="10fr calc(16rem + 6px)"
-        gridTemplateRows="2fr 1fr"
-        gridTemplateAreas={`". sidebar"
-          "panel panel"`}
-      >
-        
-      </Grid> */}
     </motion.div>
   );
 };

@@ -2,17 +2,19 @@ import { BasicMainStats, CharacterType } from "@/entities/characters/types";
 import { Box, Card, CardMedia, Typography } from "@mui/material";
 import React from "react";
 import "./Avatar.scss";
+import { useSelector } from "react-redux";
+import { RootState } from "@/app/store";
 
-interface AvatarProps {
-  character: CharacterType;
-  currentMainStats: BasicMainStats;
-}
-
-export const Avatar = ({ character, currentMainStats }: AvatarProps) => {
-  console.log(character);
+export const Avatar = () => {
+  const { selectedCharacter, currentMainStats } = useSelector(
+    (state: RootState) => state.character
+  );
 
   return (
-    <Box color="var(--white-main-color)" border="3px solid var(--main-color)">
+    <Box
+      color="var(--white-main-color)"
+      borderTop="3px solid var(--main-color)"
+    >
       <Box display="grid" gridTemplateColumns="1fr 1fr" textAlign="center">
         <Box borderRight="2px solid var(--main-color)" className="hp-bg">
           <span className="main-stat hp">{currentMainStats.hp}</span>
@@ -37,7 +39,7 @@ export const Avatar = ({ character, currentMainStats }: AvatarProps) => {
       >
         <CardMedia
           sx={{ height: "16rem", width: "16rem" }}
-          image={character.imageMap.norm}
+          image={selectedCharacter.imageMap.norm}
         />
       </Card>
     </Box>
