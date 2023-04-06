@@ -47,6 +47,7 @@ export const ChooseCharacter = () => {
             character={character}
             to="/devourer"
             onClick={onChoose(character)}
+            key={character.name}
           >
             <Typography
               gutterBottom

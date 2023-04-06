@@ -48,6 +48,7 @@ export const ChooseDevourer = () => {
             devourer={devourer}
             to="/game"
             onClick={onChoose(devourer)}
+            key={devourer.name}
           >
             <Typography
               gutterBottom

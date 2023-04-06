@@ -50,7 +50,7 @@ const indexHtml = join(process.env.DIST, "index.html");
 
 async function createWindow() {
   win = new BrowserWindow({
-    title: "Main window",
+    title: "Sanity's Demise",
     icon: join(process.env.PUBLIC, "icon.png"),
     autoHideMenuBar: true,
     webPreferences: {
@@ -62,8 +62,8 @@ async function createWindow() {
       contextIsolation: false,
       devTools: !app.isPackaged,
     },
-    minHeight: 512,
-    minWidth: 768,
+    minHeight: 540,
+    minWidth: 960,
   });
   win.removeMenu();
   Menu.setApplicationMenu(null);
