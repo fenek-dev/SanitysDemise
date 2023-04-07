@@ -1,35 +1,30 @@
+import { OpeningScene } from "@/entities/scenes/opening/opening.scene";
+import { SceneType } from "@/entities/scenes/types";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface GeneralState {
-  value: number;
+  currentScene: SceneType | null;
 }
 
 const initialState: GeneralState = {
-  value: 0,
+  currentScene: OpeningScene,
 };
 
 export const GeneralSlice = createSlice({
   name: "General",
   initialState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
+    setCurrentScene: (state, action: PayloadAction<SceneType>) => {
+      state.currentScene = action.payload;
     },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
+    removeCurrentScene: (state) => {
+      state.currentScene = null;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = GeneralSlice.actions;
+export const { setCurrentScene, removeCurrentScene } = GeneralSlice.actions;
 
 export default GeneralSlice.reducer;

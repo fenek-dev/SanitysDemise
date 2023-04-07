@@ -18,7 +18,7 @@ function Menu() {
 
   useEffect(() => {
     const timeout = window.setInterval(() => {
-      setBg((value) => (value + 1) % 2);
+      setBg((value) => (value + 1) % 1);
     }, 60000);
 
     return () => {

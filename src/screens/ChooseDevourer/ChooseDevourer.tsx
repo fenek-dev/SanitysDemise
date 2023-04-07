@@ -11,12 +11,15 @@ import { DevourerCard } from "@/shared/molecules/DevourerCard/DevourerCard";
 import { useDispatch } from "react-redux";
 import { startNewGame } from "@/app/store/character/character.slice";
 import { DevourerType } from "@/entities/devourers/type";
+import { setCurrentScene } from "@/app/store/general/general.slice";
+import { OpeningScene } from "@/entities/scenes/opening/opening.scene";
 
 export const ChooseDevourer = () => {
   const dispatch = useDispatch();
 
   const onChoose = (devourer: DevourerType) => () => {
     dispatch(startNewGame(devourer));
+    dispatch(setCurrentScene(OpeningScene));
   };
   return (
     <motion.div

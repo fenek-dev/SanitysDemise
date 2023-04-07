@@ -1,5 +1,6 @@
 import { Avatar } from "@/widgets/Avatar/Avatar";
 import { Panel } from "@/widgets/Panel/Panel";
+import { Scenes } from "@/widgets/Scenes/Scenes";
 import { Sidebar } from "@/widgets/Sidebar/Sidebar";
 import { Toolbar } from "@/widgets/Toolbar/Toolbar";
 import { Grid } from "@mui/material";
@@ -8,38 +9,41 @@ import React from "react";
 
 export const Game = () => {
   return (
-    <motion.div
-      className="full"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <Grid
+    <>
+      <motion.div
         className="full"
-        container
-        display="grid"
-        gridTemplateColumns="10fr calc(16rem + 6px)"
-        gridTemplateRows="1fr 16fr"
-        gridTemplateAreas={`"toolbar toolbar"
-          "main sidebar"`}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
       >
-        <Grid gridArea="toolbar">
-          <Toolbar />
-        </Grid>
-        <Grid gridArea="main">hello</Grid>
         <Grid
-          gridArea="sidebar"
-          bgcolor="rgba(0, 0, 0, 0.6)"
-          border="3px solid var(--main-color)"
-          borderTop="none"
-          display="flex"
-          flexDirection="column"
+          className="full"
+          container
+          display="grid"
+          gridTemplateColumns="10fr calc(16rem + 6px)"
+          gridTemplateRows="1fr 16fr"
+          gridTemplateAreas={`"toolbar toolbar"
+          "main sidebar"`}
         >
-          <Sidebar />
-          <Avatar />
+          <Grid gridArea="toolbar">
+            <Toolbar />
+          </Grid>
+          <Grid gridArea="main">hello</Grid>
+          <Grid
+            gridArea="sidebar"
+            bgcolor="rgba(0, 0, 0, 0.6)"
+            border="3px solid var(--main-color)"
+            borderTop="none"
+            display="flex"
+            flexDirection="column"
+          >
+            <Sidebar />
+            <Avatar />
+          </Grid>
         </Grid>
-      </Grid>
-    </motion.div>
+      </motion.div>
+      <Scenes />
+    </>
   );
 };

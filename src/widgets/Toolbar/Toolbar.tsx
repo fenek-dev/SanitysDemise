@@ -8,7 +8,7 @@ import { ReactComponent as Hours } from "@/app/assets/svgs/hours.svg";
 export const Toolbar = () => {
   return (
     <Box
-      height="3rem"
+      height="100%"
       bgcolor="rgba(0, 0, 0, 0.6)"
       border="3px solid var(--main-color)"
       display="flex"
@@ -16,7 +16,7 @@ export const Toolbar = () => {
       justifyContent="space-between"
       color="white"
     >
-      <Link to="/character">
+      <Link to="/">
         <Menu width="3rem" height="3rem" />
       </Link>
       <Box display="flex" gap="2rem">
