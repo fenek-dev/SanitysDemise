@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import _ from "lodash";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 interface CardProps {
@@ -26,6 +27,8 @@ export const CharacterCard = ({
   onClick,
   to,
 }: React.PropsWithChildren<CardProps>) => {
+  const { t } = useTranslation();
+
   return (
     <Link to={to} onClick={onClick}>
       <CardComponent
@@ -82,7 +85,7 @@ export const CharacterCard = ({
                     borderRight="0"
                   >
                     <Typography variant="button">
-                      {STATS_MAP[statname].short}
+                      {t(STATS_MAP[statname].short)}
                     </Typography>
                     <span className="russo">{stat}</span>
                   </Box>
@@ -131,7 +134,7 @@ export const CharacterCard = ({
           <Box mt="1rem" textAlign="center">
             {children}
           </Box>
-          <Box mt="auto">{DIFFICULTIES_MAP[character.difficulty]}</Box>
+          <Box mt="auto">{DIFFICULTIES_MAP(t)[character.difficulty]}</Box>
         </CardContent>
       </CardComponent>
     </Link>

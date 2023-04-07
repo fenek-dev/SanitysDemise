@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import { TFunction } from "i18next";
 
 export const DIFFICULTIES = {
   _empty: "_empty",
@@ -7,16 +8,16 @@ export const DIFFICULTIES = {
 } as const;
 type DifficultiesMapType = Record<keyof typeof DIFFICULTIES, React.ReactNode>;
 
-export const DIFFICULTIES_MAP: DifficultiesMapType = {
+export const DIFFICULTIES_MAP: (t: TFunction) => DifficultiesMapType = (t) => ({
   _empty: "_empty",
   easy: (
     <Typography variant="h4" textAlign="center" color="var(--easy-color)">
-      [Easy]
+      [{t("Easy")}]
     </Typography>
   ),
   hell: (
     <Typography variant="h4" textAlign="center" color="var(--impossible-color)">
-      [HELL]
+      [{t("HELL")}]
     </Typography>
   ),
-};
+});

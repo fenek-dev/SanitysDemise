@@ -1,0 +1,29 @@
+{
+    "translation": {
+        "New Game": "New Game",
+        "Settings": "Settings",
+        "Continue": "Continue",
+        "Quit": "Quit",
+        "Back": "Back",
+        "FullScreen": "FullScreen",
+        "Choose your character": "Choose your character",
+        "Choose your devourer": "Choose your devourer",
+        "STR": "STR",
+        "DEX": "DEX",
+        "INT": "INT",
+        "CHR": "CHR",
+        "FTH": "FTH",
+        "PRC": "PRC",
+        "Easy": "Easy",
+        "HELL": "HELL",
+        "Lucian": "Lucian",
+        "Valtarin": "Valtarin",
+        "Watcher": "Watcher",
+        "[No Effects]": "[No Effects]",
+        "I always believed that the world was just what I could see, but I was wrong.": "I always believed that the world was just what I could see, but I was wrong.",
+        "I found an old book filled with secrets beyond my wildest imagination.": "I found an old book filled with secrets beyond my wildest imagination.",
+        "But I didn't know what I was getting myself into until it was too late...": "But I didn't know what I was getting myself into until it was too late...",
+        "days": "Day {count}",
+        "hours": "{count, plural, =1 {# hour left} other {# hours left}}"
+    }
+}

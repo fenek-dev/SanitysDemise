@@ -8,7 +8,7 @@ export interface GeneralState {
 }
 
 const initialState: GeneralState = {
-  currentScene: OpeningScene,
+  currentScene: null,
 };
 
 export const GeneralSlice = createSlice({

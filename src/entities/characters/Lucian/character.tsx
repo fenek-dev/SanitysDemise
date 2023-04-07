@@ -6,7 +6,7 @@ import { DIFFICULTIES } from "@/entities/maps/difficulties";
 
 export const Lucian: CharacterType = {
   name: "Lucian",
-  shortDescription: "[No Effects]",
+  shortDescription: ["[No Effects]"],
   cardImage,
   difficulty: DIFFICULTIES.easy,
   defaultEffects: [],

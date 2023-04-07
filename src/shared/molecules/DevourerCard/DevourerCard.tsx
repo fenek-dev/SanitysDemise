@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import _ from "lodash";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 interface CardProps {
@@ -26,6 +27,7 @@ export const DevourerCard = ({
   onClick,
   to,
 }: React.PropsWithChildren<CardProps>) => {
+  const { t } = useTranslation();
   return (
     <Link to={to} onClick={onClick}>
       <CardComponent
@@ -62,7 +64,7 @@ export const DevourerCard = ({
           <Box mt="1rem" textAlign="center">
             {children}
           </Box>
-          <Box mt="auto">{DIFFICULTIES_MAP[devourer.difficulty]}</Box>
+          <Box mt="auto">{DIFFICULTIES_MAP(t)[devourer.difficulty]}</Box>
         </CardContent>
       </CardComponent>
     </Link>

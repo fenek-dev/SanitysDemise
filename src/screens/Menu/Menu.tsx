@@ -6,6 +6,7 @@ import { Settings } from "@/features/Settings";
 import { NewGame } from "@/features/NewGame";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 console.log(
   "[Menu.tsx]",
@@ -14,7 +15,7 @@ console.log(
 
 function Menu() {
   const [bg, setBg] = useState(0);
-  const [open, setOpen] = useState<string | null>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const timeout = window.setInterval(() => {
@@ -36,30 +37,24 @@ function Menu() {
       transition={{ duration: 0.5 }}
     >
       <div className="menu-block">
-        <Link to="/character">
-          <Button
-            className="img-button start-btn"
-            variant="outlined"
-            onClick={() => setOpen("new-game")}
-          >
-            <span>New Game</span>
+        <Link to="/character" className="menu-btn-link">
+          <Button className="img-button start-btn" variant="outlined">
+            <span>{t("New Game")}</span>
           </Button>
         </Link>
         <Button className="img-button continue-btn" variant="outlined" disabled>
-          <span>Continue</span>
+          <span>{t("Continue")}</span>
         </Button>
-        <Button
-          className="img-button settings-btn"
-          variant="outlined"
-          onClick={() => setOpen("settings")}
-        >
-          <span>Settings</span>
-        </Button>
+        <Link to="/settings" className="menu-btn-link">
+          <Button className="img-button settings-btn" variant="outlined">
+            <span>{t("Settings")}</span>
+          </Button>
+        </Link>
         <Button className="img-button quit-btn" variant="outlined">
-          <span>Quit</span>
+          <span>{t("Quit")}</span>
         </Button>
       </div>
-      <Modal
+      {/* <Modal
         open={open === "settings"}
         sx={{
           position: "fixed",
@@ -67,7 +62,7 @@ function Menu() {
         }}
       >
         <Settings close={() => setOpen(null)} />
-      </Modal>
+      </Modal> */}
     </motion.div>
   );
 }

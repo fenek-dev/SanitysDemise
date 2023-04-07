@@ -1,8 +1,9 @@
+import { TFunction } from "i18next";
 import { DIFFICULTIES } from "../maps/difficulties";
 
 export interface CharacterType {
   name: string;
-  shortDescription: React.ReactNode;
+  shortDescription: string[];
   cardImage: string;
   defaultSkillStats: BasicSkillStats;
   difficulty: keyof typeof DIFFICULTIES;

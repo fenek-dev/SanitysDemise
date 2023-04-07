@@ -145,3 +145,12 @@ ipcMain.handle("open-win", (_, arg) => {
     childWindow.loadFile(indexHtml, { hash: arg });
   }
 });
+
+ipcMain.on("resize", (_, { width, height }) => {
+  win.setSize(width, height);
+});
+
+ipcMain.on("fullscreen", (_, { fullscreen, ration }) => {
+  win.setFullScreen(fullscreen);
+  win.setAspectRatio(ration);
+});

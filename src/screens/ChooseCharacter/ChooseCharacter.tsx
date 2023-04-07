@@ -10,9 +10,11 @@ import { redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { CharacterType } from "@/entities/characters/types";
 import { chooseCharacter } from "@/app/store/character/character.slice";
+import { useTranslation } from "react-i18next";
 
 export const ChooseCharacter = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const onChoose = (character: CharacterType) => () => {
     dispatch(chooseCharacter(character));
@@ -33,7 +35,7 @@ export const ChooseCharacter = () => {
         fontWeight="medium"
         className="stroke"
       >
-        Choose your character
+        {t("Choose your character")}
       </Typography>
       <Box
         display="flex"
@@ -55,10 +57,10 @@ export const ChooseCharacter = () => {
               textAlign="center"
               lineHeight={0.5}
             >
-              {character.name}
+              {t(character.name)}
             </Typography>
             <Typography variant="body1" fontSize="1.4rem" lineHeight={1}>
-              {character.shortDescription}
+              {_.map(character.shortDescription, (desc) => t(desc))}
             </Typography>
           </CharacterCard>
         ))}
@@ -71,7 +73,7 @@ export const ChooseCharacter = () => {
         left="3rem"
       >
         <Link to="/">
-          <Button>Back</Button>
+          <Button>{t("Back")}</Button>
         </Link>
       </Box>
     </motion.div>

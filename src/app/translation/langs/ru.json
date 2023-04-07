@@ -1,0 +1,29 @@
+{
+    "translation": {
+        "New Game": "Новая Игра",
+        "Settings": "Настройки",
+        "Continue": "Продолжить",
+        "Quit": "Выйти",
+        "Back": "Назад",
+        "FullScreen": "Полный Экран",
+        "Choose your character": "Выбери персонажа",
+        "Choose your devourer": "Выбери своего пожирателя",
+        "STR": "СИЛ",
+        "DEX": "ЛОВ",
+        "INT": "ИНТ",
+        "CHR": "ХАР",
+        "FTH": "ВЕР",
+        "PRC": "ВОС",
+        "Easy": "Легко",
+        "Hell": "УЖАС",
+        "Lucian": "Люциан",
+        "Valtarin": "Валтарин",
+        "Watcher": "Наблюдатель",
+        "[No Effects]": "[Нет Эффектов]",
+        "I always believed that the world was just what I could see, but I was wrong.": "Я всегда думал, что мир таков, каким я его вижу. Но я ошибался.",
+        "I found an old book filled with secrets beyond my wildest imagination.": "Я нашёл книгу с секретами, которые не укладывались в моё воображение.",
+        "But I didn't know what I was getting myself into until it was too late...": "Но я не знал, во что ввязываюсь, пока не стало слишком поздно...",
+        "days": "День {count}",
+        "hours": "Осталось часов {count}"
+    }
+}

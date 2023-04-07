@@ -13,9 +13,11 @@ import { startNewGame } from "@/app/store/character/character.slice";
 import { DevourerType } from "@/entities/devourers/type";
 import { setCurrentScene } from "@/app/store/general/general.slice";
 import { OpeningScene } from "@/entities/scenes/opening/opening.scene";
+import { useTranslation } from "react-i18next";
 
 export const ChooseDevourer = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const onChoose = (devourer: DevourerType) => () => {
     dispatch(startNewGame(devourer));
@@ -37,7 +39,7 @@ export const ChooseDevourer = () => {
         fontWeight="medium"
         className="stroke"
       >
-        Choose your devourer
+        {t("Choose your devourer")}
       </Typography>
       <Box
         display="flex"
@@ -59,10 +61,10 @@ export const ChooseDevourer = () => {
               textAlign="center"
               lineHeight={0.5}
             >
-              {devourer.name}
+              {t(devourer.name)}
             </Typography>
             <Typography variant="body1" fontSize="1.4rem" lineHeight={1}>
-              {devourer.shortDescription}
+              {_.map(devourer.shortDescription, (desc) => t(desc))}
             </Typography>
           </DevourerCard>
         ))}
@@ -75,7 +77,7 @@ export const ChooseDevourer = () => {
         left="3rem"
       >
         <Link to="/character">
-          <Button>Back</Button>
+          <Button>{t("Back")}</Button>
         </Link>
       </Box>
     </motion.div>

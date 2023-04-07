@@ -6,8 +6,10 @@ import _ from "lodash";
 import { AnimatePresence, motion, useAnimate } from "framer-motion";
 import { AnimatedText } from "@/shared/molecules/AnimatedText/AnimatedText";
 import { removeCurrentScene } from "@/app/store/general/general.slice";
+import { useTranslation } from "react-i18next";
 
 export const Scenes = () => {
+  const { t } = useTranslation();
   const currentScene = useSelector(
     (state: RootState) => state.general.currentScene
   );
@@ -18,7 +20,7 @@ export const Scenes = () => {
   const animation = async () => {
     await animate(scope.current, { opacity: 0 }, { duration: 0.5 });
     setStage((val) => val + 1);
-    await animate(scope.current, { opacity: 1 }, { duration: 0.5 });
+    await animate(scope.current, { opacity: 1 }, { duration: 0.5, delay: 0.2 });
   };
 
   const onClick = async () => {
@@ -53,7 +55,7 @@ export const Scenes = () => {
               <img
                 ref={scope}
                 style={{ height: "80vh", width: "100%" }}
-                src={currentScene?.stages[stage].image}
+                src={currentScene?.stages[stage]?.image}
               />
               <Box
                 height="20rem"
@@ -62,7 +64,9 @@ export const Scenes = () => {
                 color="var(--white-main-color)"
                 textAlign="center"
               >
-                <AnimatedText text={currentScene?.stages[stage].subtitle} />
+                <AnimatedText
+                  text={t(currentScene?.stages[stage]?.subtitle || "") || ""}
+                />
               </Box>
             </Box>
           </motion.div>

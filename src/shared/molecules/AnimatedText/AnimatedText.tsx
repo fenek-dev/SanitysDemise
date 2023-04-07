@@ -28,10 +28,16 @@ export const AnimatedText = ({ text }: AnimatedTextProps) => {
     const animate = async () => {
       await ctrls.start("hidden");
       setCurrentText(text);
-      await ctrls.start("visible");
     };
     animate();
   }, [text]);
+
+  useEffect(() => {
+    const animate = async () => {
+      await ctrls.start("visible");
+    };
+    animate();
+  }, [currentText]);
 
   const characterAnimation = (delay: number) => ({
     hidden: {
