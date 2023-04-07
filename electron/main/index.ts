@@ -62,8 +62,9 @@ async function createWindow() {
       contextIsolation: false,
       devTools: !app.isPackaged,
     },
-    minHeight: 540,
-    minWidth: 960,
+    minHeight: 600,
+    minWidth: 800,
+    resizable: false,
   });
   win.removeMenu();
   Menu.setApplicationMenu(null);
@@ -146,11 +147,14 @@ ipcMain.handle("open-win", (_, arg) => {
   }
 });
 
-ipcMain.on("resize", (_, { width, height }) => {
+ipcMain.on("resize", (_, width, height) => {
+  console.log(width, height);
+
   win.setSize(width, height);
 });
 
-ipcMain.on("fullscreen", (_, { fullscreen, ration }) => {
+ipcMain.on("fullscreen", (_, fullscreen) => {
   win.setFullScreen(fullscreen);
-  win.setAspectRatio(ration);
 });
+
+ipcMain.on("close", () => app.quit());

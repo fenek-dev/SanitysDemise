@@ -25,7 +25,7 @@ export const EmptyCharacterImageMap = {
 };
 export const EmptyCharacter: CharacterType = {
   name: "",
-  shortDescription: "",
+  shortDescription: [""],
   cardImage: "",
   difficulty: DIFFICULTIES._empty,
   defaultEffects: [],

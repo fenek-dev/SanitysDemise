@@ -7,6 +7,7 @@ import { NewGame } from "@/features/NewGame";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+const { ipcRenderer } = window.require("electron");
 
 console.log(
   "[Menu.tsx]",
@@ -50,19 +51,14 @@ function Menu() {
             <span>{t("Settings")}</span>
           </Button>
         </Link>
-        <Button className="img-button quit-btn" variant="outlined">
+        <Button
+          className="img-button quit-btn"
+          variant="outlined"
+          onClick={() => ipcRenderer.send("close")}
+        >
           <span>{t("Quit")}</span>
         </Button>
       </div>
-      {/* <Modal
-        open={open === "settings"}
-        sx={{
-          position: "fixed",
-          inset: "auto 2rem auto auto",
-        }}
-      >
-        <Settings close={() => setOpen(null)} />
-      </Modal> */}
     </motion.div>
   );
 }
