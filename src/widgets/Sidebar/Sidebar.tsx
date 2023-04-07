@@ -1,6 +1,7 @@
 import { Avatar, Box } from "@mui/material";
 import React, { useState } from "react";
 import backpack from "./icons/backpack.png";
+import kit from "./icons/kit.png";
 import { AnimatePresence, motion } from "framer-motion";
 import "./Sidebar.scss";
 import {
@@ -25,23 +26,16 @@ export const Sidebar = () => {
         className="sidebar-tabs"
       >
         <TabsListUnstyled className="sidebar-tabs-list">
-          <TabUnstyled component="div" value="backpack">
+          <TabUnstyled component="div" value="backpack" className="sidebar-tab">
             <Avatar
               src={backpack}
               variant="rounded"
               sx={{ width: "3rem", height: "3rem" }}
             />
           </TabUnstyled>
-          <TabUnstyled component="div" value="backpack">
+          <TabUnstyled component="div" value="kit" className="sidebar-tab">
             <Avatar
-              src={backpack}
-              variant="rounded"
-              sx={{ width: "3rem", height: "3rem" }}
-            />
-          </TabUnstyled>
-          <TabUnstyled component="div" value="backpack">
-            <Avatar
-              src={backpack}
+              src={kit}
               variant="rounded"
               sx={{ width: "3rem", height: "3rem" }}
             />

@@ -39,9 +39,6 @@ export const Game = () => {
           <Sidebar />
           <Avatar />
         </Grid>
-        {/* <Grid gridArea="panel">
-          <Panel />
-        </Grid> */}
       </Grid>
     </motion.div>
   );
