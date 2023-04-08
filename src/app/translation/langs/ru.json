@@ -24,6 +24,8 @@
         "I found an old book filled with secrets beyond my wildest imagination.": "Я нашёл книгу с секретами, которые не укладывались в моё воображение.",
         "But I didn't know what I was getting myself into until it was too late...": "Но я не знал, во что ввязываюсь, пока не стало слишком поздно...",
         "days": "День {count}",
-        "hours": "Осталось часов {count}"
+        "hours": "Осталось часов {count}",
+        "Rest": "Отдохнуть",
+        "Investigate": "Исследовать"
     }
 }

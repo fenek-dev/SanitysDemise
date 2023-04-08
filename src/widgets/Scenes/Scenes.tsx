@@ -52,13 +52,17 @@ export const Scenes = () => {
               bgcolor="black"
               onClick={onClick}
             >
-              <img
+              <Box
                 ref={scope}
-                style={{ height: "80vh", width: "100%" }}
-                src={currentScene?.stages[stage]?.image}
+                height="calc(100vh - 12rem)"
+                width="100%"
+                sx={{
+                  background: `url("${currentScene?.stages[stage]?.image}") center center no-repeat`,
+                  backgroundSize: "cover",
+                }}
               />
               <Box
-                height="20rem"
+                height="12rem"
                 width="100%"
                 padding="2rem"
                 color="var(--white-main-color)"

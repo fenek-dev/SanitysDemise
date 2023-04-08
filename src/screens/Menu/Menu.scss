@@ -15,10 +15,6 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-
-  & span {
-    -webkit-text-stroke: 1px #d1d5db;
-  }
 }
 
 .menu-btn-link {

@@ -24,6 +24,8 @@
         "I found an old book filled with secrets beyond my wildest imagination.": "I found an old book filled with secrets beyond my wildest imagination.",
         "But I didn't know what I was getting myself into until it was too late...": "But I didn't know what I was getting myself into until it was too late...",
         "days": "Day {count}",
-        "hours": "{count, plural, =1 {# hour left} other {# hours left}}"
+        "hours": "{count, plural, =1 {# hour left} other {# hours left}}",
+        "Rest": "Rest",
+        "Investigate": "Investigate"
     }
 }

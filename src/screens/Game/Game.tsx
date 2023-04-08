@@ -1,4 +1,5 @@
 import { Avatar } from "@/widgets/Avatar/Avatar";
+import { GameFrame } from "@/widgets/GameFrame/GameFrame";
 import { Panel } from "@/widgets/Panel/Panel";
 import { Scenes } from "@/widgets/Scenes/Scenes";
 import { Sidebar } from "@/widgets/Sidebar/Sidebar";
@@ -29,7 +30,9 @@ export const Game = () => {
           <Grid gridArea="toolbar">
             <Toolbar />
           </Grid>
-          <Grid gridArea="main">hello</Grid>
+          <Grid gridArea="main">
+            <GameFrame />
+          </Grid>
           <Grid
             gridArea="sidebar"
             bgcolor="rgba(0, 0, 0, 0.6)"
