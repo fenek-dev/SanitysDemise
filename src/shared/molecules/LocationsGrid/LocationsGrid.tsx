@@ -1,6 +1,7 @@
 import { LOCATION_NAMES } from "@/entities/locations";
 import { LocationType } from "@/entities/locations/types";
 import { Avatar, Box, Button, Typography } from "@mui/material";
+import { AnimatePresence, motion } from "framer-motion";
 import _ from "lodash";
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -20,12 +21,7 @@ export const LocationsGrid = ({
 
   return (
     <Box display="inline-flex">
-      <Box
-        display="grid"
-        gridTemplateColumns="repeat(3, 3rem)"
-        gap="1rem"
-        mb="2rem"
-      >
+      <Box display="grid" gridTemplateColumns="repeat(3, 3rem)" gap="1rem">
         {_.map(locations, (loc) => (
           <Avatar
             src={loc.image}
@@ -48,26 +44,46 @@ export const LocationsGrid = ({
         display="flex"
         flexDirection="column"
         justifyContent="flex-end"
-        gap="1rem"
+        gap="0.5rem"
         minWidth="13rem"
       >
-        {_.map(currentLocation.subLocations, (subloc) => (
-          <Button
-            className="img-button"
-            sx={{
-              ":before": {
-                background: `url("${subloc.image}") center center no-repeat`,
-                backgroundSize: "cover",
-              },
-            }}
-            variant="outlined"
-          >
-            <Typography className="img-button-text" variant="h6" zIndex="10">
-              {t(subloc.name)}
-            </Typography>
-          </Button>
-        ))}
-        <Button variant="contained" fullWidth>
+        <AnimatePresence>
+          {_.map(currentLocation.subLocations, (subloc) => (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Button
+                className="img-button"
+                sx={{
+                  paddingY: "0",
+                  ":before": {
+                    background: `url("${subloc.image}") center center no-repeat`,
+                    backgroundSize: "cover",
+                  },
+                }}
+                variant="outlined"
+              >
+                <Typography
+                  className="img-button-text"
+                  variant="h6"
+                  zIndex="10"
+                >
+                  {t(subloc.name)}
+                </Typography>
+              </Button>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+        <Button
+          variant="contained"
+          fullWidth
+          sx={{
+            paddingY: "0",
+          }}
+        >
           <Typography variant="h6">{t("Investigate")}</Typography>
         </Button>
       </Box>

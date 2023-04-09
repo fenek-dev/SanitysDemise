@@ -10,6 +10,7 @@ import {
   TabsListUnstyled,
   TabsUnstyled,
 } from "@mui/base";
+import { Backpack } from "./Tabs/Backpack";
 
 export const Sidebar = () => {
   const [open, setOpen] = useState<string>("backpack");
@@ -48,16 +49,7 @@ export const Sidebar = () => {
             animate={{ opacity: Boolean(open) ? 1 : 0 }}
             transition={{ duration: 0.2 }}
           >
-            <TabPanelUnstyled
-              value="backpack"
-              component={motion.div}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              hello
-            </TabPanelUnstyled>
+            <Backpack />
           </motion.div>
         </AnimatePresence>
       </TabsUnstyled>

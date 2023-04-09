@@ -8,6 +8,7 @@
         gap: 0.5rem;
         &-list {
             position: absolute;
+            top: 1rem;
             left: -3rem;
             display: flex;
             flex-direction: column;
@@ -22,6 +23,6 @@
     }
     &-tab {
         cursor: pointer;
-        background: #00000060;
+        background: rgba(0, 0, 0, 0.8);
     }
 }
