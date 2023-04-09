@@ -30,4 +30,5 @@ export const Valtarin: CharacterType = {
   imageMap: {
     norm: defaultImage,
   },
+  defaultItems: [],
 };

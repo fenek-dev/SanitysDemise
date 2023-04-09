@@ -1,11 +1,20 @@
+import { RootState } from "@/app/store";
+import { ItemType } from "@/entities/items/types";
 import { Katana_weapon } from "@/entities/items/weapon/unique/Katana/katana.item";
 import { Item } from "@/shared/molecules/Item/Item";
+import { ItemModal } from "@/widgets/ItemModal/ItemModal";
 import { TabPanelUnstyled } from "@mui/base";
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
-import React from "react";
+import _ from "lodash";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+
+const MAX_BACKPACK_CAPACITY = 6;
 
 export const Backpack = () => {
+  const { items } = useSelector((state: RootState) => state.character);
+  const [selectedItem, setItem] = useState<ItemType | null>(null);
   return (
     <TabPanelUnstyled
       value="backpack"
@@ -22,13 +31,20 @@ export const Backpack = () => {
         p="1rem"
         gap="1rem"
       >
-        <Item item={Katana_weapon} />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
+        {_.map(items, (item) => (
+          <Item item={item} onClick={() => setItem(item)} />
+        ))}
+        {_.map(new Array(MAX_BACKPACK_CAPACITY - _.size(items)).fill(0), () => (
+          <Item />
+        ))}
       </Box>
+      {Boolean(selectedItem) && selectedItem && (
+        <ItemModal
+          open={Boolean(open)}
+          onClose={() => setItem(null)}
+          item={selectedItem}
+        />
+      )}
     </TabPanelUnstyled>
   );
 };

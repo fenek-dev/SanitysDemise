@@ -28,18 +28,10 @@ export const Sidebar = () => {
       >
         <TabsListUnstyled className="sidebar-tabs-list">
           <TabUnstyled component="div" value="backpack" className="sidebar-tab">
-            <Avatar
-              src={backpack}
-              variant="rounded"
-              sx={{ width: "3rem", height: "3rem" }}
-            />
+            <Avatar src={backpack} variant="rounded" />
           </TabUnstyled>
           <TabUnstyled component="div" value="kit" className="sidebar-tab">
-            <Avatar
-              src={kit}
-              variant="rounded"
-              sx={{ width: "3rem", height: "3rem" }}
-            />
+            <Avatar src={kit} variant="rounded" />
           </TabUnstyled>
         </TabsListUnstyled>
         <AnimatePresence>

@@ -8,9 +8,13 @@ export interface ItemType {
   icon: string;
   type: ItemTypes;
   rarity: ItemRarities;
+  saleable: boolean;
+  throwable: boolean;
+  equipable: boolean;
+  cost: number;
 }
 
 export interface WeaponType extends ItemType {
   type: "weapon";
-  DmgUp: number;
+  dmg_up: number;
 }

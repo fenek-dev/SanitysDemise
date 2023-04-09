@@ -24,6 +24,7 @@
         "Choose a backstory": "Choose a backstory",
         "Missing Sister": "Missing Sister",
         "Trap for Hunter": "Trap for Hunter",
+        "Retribution": "Retribution",
         "[No Effects]": "[No Effects]",
         "I always believed that the world was just what I could see, but I was wrong.": "I always believed that the world was just what I could see, but I was wrong.",
         "I found an old book filled with secrets beyond my wildest imagination.": "I found an old book filled with secrets beyond my wildest imagination.",
@@ -31,6 +32,12 @@
         "days": "Day {count}",
         "hours": "{count, plural, =1 {# hour left} other {# hours left}}",
         "Rest": "Rest",
-        "Investigate": "Investigate"
+        "Investigate": "Investigate",
+        "Katana": "Katana",
+        "EMPTY": "EMPTY",
+        "weapon": "weapon",
+        "unique": "unique",
+        "common": "common",
+        "Lucian's katana": "Lucian's katana"
     }
 }

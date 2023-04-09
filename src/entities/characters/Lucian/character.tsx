@@ -4,6 +4,7 @@ import image from "./Lucian_bg.png";
 import defaultImage from "./Lucian_default.png";
 import { DIFFICULTIES } from "@/entities/maps/difficulties";
 import _ from "lodash";
+import { Katana_weapon } from "@/entities/items/weapon/unique/Katana/katana.item";
 
 export const Lucian: CharacterType = {
   name: "Lucian",
@@ -28,4 +29,5 @@ export const Lucian: CharacterType = {
   imageMap: {
     norm: defaultImage,
   },
+  defaultItems: [Katana_weapon],
 };

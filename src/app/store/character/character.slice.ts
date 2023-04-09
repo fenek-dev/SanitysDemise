@@ -9,6 +9,7 @@ import {
   BasicSkillStats,
   CharacterType,
 } from "@/entities/characters/types";
+import { ItemType } from "@/entities/items/types";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import _ from "lodash";
@@ -18,7 +19,7 @@ export interface CharacterState {
   currentMainStats: BasicMainStats;
   currentSkillStats: BasicSkillStats;
   effects: unknown[];
-  items: unknown[];
+  items: ItemType[];
 }
 
 const initialState: CharacterState = {
@@ -39,6 +40,7 @@ export const CharacterSlice = createSlice({
     startNewGame: (state) => {
       state.currentMainStats = state.selectedCharacter.defaultMainStats;
       state.currentSkillStats = state.selectedCharacter.defaultSkillStats;
+      state.items = state.selectedCharacter.defaultItems;
     },
   },
 });

@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 import { RootState } from "@/app/store";
 import { setMainStory } from "@/app/store/general/general.slice";
 import { ALL_STORIES } from "@/entities/stories";
+import { ITEM_RARITY_COLOR } from "@/entities/items";
 
 export const ChooseCharacter = () => {
   const dispatch = useDispatch();
@@ -54,6 +55,16 @@ export const ChooseCharacter = () => {
       >
         <Box position="absolute" top="3rem" right="3rem">
           <CharacterCard character={selectedCharacter}>
+            {_.map(selectedCharacter.defaultItems, (item) => (
+              <Typography
+                variant="body1"
+                fontSize="1.5rem"
+                lineHeight={1}
+                color={ITEM_RARITY_COLOR[item.rarity]}
+              >
+                [{t(item.name)}]
+              </Typography>
+            ))}
             <Typography variant="body1" fontSize="1.4rem" lineHeight={1}>
               {_.map(selectedCharacter.shortDescription, (desc) => t(desc))}
             </Typography>

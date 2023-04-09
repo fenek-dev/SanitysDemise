@@ -6,9 +6,10 @@ import { useTranslation } from "react-i18next";
 
 interface ItemProps {
   item?: ItemType;
+  onClick?: () => void;
 }
 
-export const Item = ({ item }: ItemProps) => {
+export const Item = ({ item, onClick }: ItemProps) => {
   const { t } = useTranslation();
   return (
     <Box
@@ -16,6 +17,7 @@ export const Item = ({ item }: ItemProps) => {
       border="2px solid var(--white-main-color)"
       borderRadius="0.5rem"
       height="3rem"
+      onClick={onClick}
       sx={{
         cursor: "pointer",
       }}

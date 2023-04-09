@@ -30,8 +30,8 @@ export const CharacterCard = ({
     <CardComponent
       sx={{
         width: "20rem",
-        cursor: "pointer",
         position: "relative",
+        background: "none !important",
       }}
     >
       <CardContent
@@ -43,7 +43,7 @@ export const CharacterCard = ({
           fontFamily: "RussoOne !important",
           backgroundColor: "var(--main-color)",
           transition: "0.3s",
-          opacity: 0.9,
+          opacity: 0.8,
         }}
       >
         <Typography
@@ -123,10 +123,16 @@ export const CharacterCard = ({
             )
           )}
         </Box>
-        <Box mt="1rem" textAlign="center">
+        <Box
+          mt="1rem"
+          textAlign="center"
+          display="flex"
+          flexDirection="column"
+          gap="0.5rem"
+        >
           {children}
         </Box>
-        <Box mt="2rem">{DIFFICULTIES_MAP(t)[character.difficulty]}</Box>
+        <Box mt="4rem">{DIFFICULTIES_MAP(t)[character.difficulty]}</Box>
       </CardContent>
     </CardComponent>
   );

@@ -24,6 +24,7 @@
         "Choose a backstory": "Выберите предысторию",
         "Missing Sister": "Пропавшая Сестра",
         "Trap for Hunter": "Ловушка для Охотника",
+        "Retribution": "Возмездие",
         "[No Effects]": "[Нет Эффектов]",
         "I always believed that the world was just what I could see, but I was wrong.": "Я всегда думал, что мир таков, каким я его вижу. Но я ошибался.",
         "I found an old book filled with secrets beyond my wildest imagination.": "Я нашёл книгу с секретами, которые не укладывались в моё воображение.",
@@ -31,6 +32,12 @@
         "days": "День {count}",
         "hours": "Осталось часов {count}",
         "Rest": "Отдохнуть",
-        "Investigate": "Исследовать"
+        "Investigate": "Исследовать",
+        "Katana": "Катана",
+        "EMPTY": "ПУСТО",
+        "weapon": "оружие",
+        "unique": "уникальный",
+        "common": "обычный",
+        "Lucian's katana": "Катана Люциана"
     }
 }

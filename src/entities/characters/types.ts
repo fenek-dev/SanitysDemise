@@ -1,5 +1,6 @@
 import { TFunction } from "i18next";
 import { DIFFICULTIES } from "../maps/difficulties";
+import { ItemType } from "../items/types";
 
 export interface CharacterType {
   name: string;
@@ -10,6 +11,7 @@ export interface CharacterType {
   defaultMainStats: BasicMainStats;
   defaultEffects: unknown[];
   imageMap: CharacterImageMap;
+  defaultItems: ItemType[];
 }
 
 export interface BasicMainStats {

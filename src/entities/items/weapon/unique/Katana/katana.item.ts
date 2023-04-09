@@ -8,5 +8,9 @@ export const Katana_weapon: WeaponType = {
   description: "Lucian's katana",
   icon,
   rarity: "unique",
-  DmgUp: 3,
+  saleable: false,
+  throwable: true,
+  equipable: true,
+  cost: 0,
+  dmg_up: 3,
 };
