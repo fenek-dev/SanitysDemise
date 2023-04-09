@@ -18,7 +18,7 @@
 }
 
 .MuiPaper-root {
-    background-color: rgba(var(--bg-color-rgb), 0.6) !important;
+    background-color: rgb(var(--bg-color-rgb)) !important;
 }
 
 .MuiMenuItem-root {
@@ -31,7 +31,8 @@ button.MuiButtonBase-root {
     background-color: rgba(var(--bg-color-rgb), 0.4) !important;
     box-shadow: none !important;
     border-radius: var(--radius) !important;
-    border: 0.3rem solid var(--main-color) !important;
+    border: 0.3rem solid !important;
+    border-color: var(--main-color);
     line-height: 1 !important;
 
     &:focus {

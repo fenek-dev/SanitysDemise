@@ -1,13 +1,13 @@
 import { Box, Typography } from "@mui/material";
 import { CharacterType } from "../types";
-import cardImage from "./Valtarin_card.png";
+import image from "./Valtarin_bg.png";
 import defaultImage from "./Valtarin_default.png";
 import { DIFFICULTIES } from "@/entities/maps/difficulties";
 
 export const Valtarin: CharacterType = {
   name: "Valtarin",
   shortDescription: ["[No Effects]"],
-  cardImage,
+  image,
   difficulty: DIFFICULTIES.hell,
   defaultEffects: [],
   defaultMainStats: {

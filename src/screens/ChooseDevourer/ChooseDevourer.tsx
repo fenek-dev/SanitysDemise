@@ -73,8 +73,9 @@ export const ChooseDevourer = () => {
         display="flex"
         justifyContent="center"
         position="absolute"
-        top="5rem"
+        top="3rem"
         left="3rem"
+        zIndex="10"
       >
         <Link to="/character">
           <Button>{t("Back")}</Button>

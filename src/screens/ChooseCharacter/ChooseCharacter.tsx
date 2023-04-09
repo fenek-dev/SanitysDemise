@@ -5,20 +5,34 @@ import { Link } from "react-router-dom";
 import { CharacterCard } from "@/shared/molecules/CharacterCard/CharacterCard";
 import { ALL_CHARACTERS } from "@/entities/characters";
 import _ from "lodash";
-import { motion } from "framer-motion";
-import { redirect } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { motion, useAnimate } from "framer-motion";
+import { useDispatch, useSelector } from "react-redux";
 import { CharacterType } from "@/entities/characters/types";
 import { chooseCharacter } from "@/app/store/character/character.slice";
 import { useTranslation } from "react-i18next";
+import { RootState } from "@/app/store";
 
 export const ChooseCharacter = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const { selectedCharacter } = useSelector(
+    (state: RootState) => state.character
+  );
+  const [scope, animate] = useAnimate();
 
   const onChoose = (character: CharacterType) => () => {
-    dispatch(chooseCharacter(character));
+    const animation = async () => {
+      await animate(scope.current, { opacity: 0 }, { duration: 0.5 });
+      dispatch(chooseCharacter(character));
+      await animate(
+        scope.current,
+        { opacity: 1 },
+        { duration: 0.5, delay: 0.2 }
+      );
+    };
+    animation();
   };
+
   return (
     <motion.div
       className="full choose-character-bg"
@@ -28,49 +42,62 @@ export const ChooseCharacter = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <Typography
-        variant="h1"
-        textAlign="center"
-        mt="3rem"
-        fontWeight="medium"
-        className="stroke"
-      >
-        {t("Choose your character")}
-      </Typography>
       <Box
-        display="flex"
-        gap="5rem"
-        marginX="auto"
-        padding="5rem"
-        justifyContent="center"
+        className="full"
+        sx={{
+          background: `url("${selectedCharacter.image}") center center no-repeat`,
+          backgroundSize: "cover",
+        }}
+        ref={scope}
       >
-        {_.map(ALL_CHARACTERS, (character) => (
-          <CharacterCard
-            character={character}
-            to="/devourer"
-            onClick={onChoose(character)}
-            key={character.name}
-          >
-            <Typography
-              gutterBottom
-              variant="h3"
-              textAlign="center"
-              lineHeight={0.5}
-            >
-              {t(character.name)}
-            </Typography>
+        <Box position="absolute" top="3rem" right="3rem">
+          <CharacterCard character={selectedCharacter}>
             <Typography variant="body1" fontSize="1.4rem" lineHeight={1}>
-              {_.map(character.shortDescription, (desc) => t(desc))}
+              {_.map(selectedCharacter.shortDescription, (desc) => t(desc))}
             </Typography>
           </CharacterCard>
+        </Box>
+
+        <Box position="absolute" bottom="3rem" right="3rem">
+          <Link to="/devourer">
+            <Button>{t("Select")}</Button>
+          </Link>
+        </Box>
+      </Box>
+
+      <Box
+        position="absolute"
+        bottom="1rem"
+        left="50%"
+        display="flex"
+        gap="1rem"
+        sx={{ transform: "translateX(-50%)" }}
+      >
+        {_.map(ALL_CHARACTERS, (character) => (
+          <Button
+            className="img-button"
+            variant="outlined"
+            onClick={onChoose(character)}
+            sx={{
+              ":before": {
+                background: `url("${character.image}") center center no-repeat`,
+                backgroundSize: "cover",
+              },
+            }}
+          >
+            <Typography variant="h5" className="img-button-text">
+              {t(character.name)}
+            </Typography>
+          </Button>
         ))}
       </Box>
       <Box
         display="flex"
         justifyContent="center"
         position="absolute"
-        top="5rem"
+        top="3rem"
         left="3rem"
+        zIndex="10"
       >
         <Link to="/">
           <Button>{t("Back")}</Button>

@@ -4,7 +4,7 @@ import { DIFFICULTIES } from "../maps/difficulties";
 export interface CharacterType {
   name: string;
   shortDescription: string[];
-  cardImage: string;
+  image: string;
   defaultSkillStats: BasicSkillStats;
   difficulty: keyof typeof DIFFICULTIES;
   defaultMainStats: BasicMainStats;

@@ -16,6 +16,12 @@ import { useTranslation } from "react-i18next";
 import _ from "lodash";
 const { ipcRenderer } = window.require("electron");
 
+const aspectRatioClasses = {
+  "16/10": "mac",
+  "16/9": "normal",
+  "4/3": "cube",
+};
+
 export const Settings = () => {
   const { i18n, t } = useTranslation();
 
@@ -24,9 +30,11 @@ export const Settings = () => {
     localStorage.setItem("lang", e.target.value);
   };
 
-  const onResize = (e: SelectChangeEvent<string>) => {
-    const [width, height] = _.split(e.target.value as string, "x");
-    ipcRenderer.send("resize", Number(width), Number(height));
+  const onResize = (e: SelectChangeEvent<"16/10" | "16/9" | "4/3">) => {
+    const [width, height] = _.split(e.target.value, "/");
+    document.body.classList.value =
+      "ratio-" + aspectRatioClasses[e.target.value as "16/10" | "16/9" | "4/3"];
+    ipcRenderer.send("resize", Number(width) / Number(height));
   };
 
   const onFullScreen = (
@@ -85,17 +93,10 @@ export const Settings = () => {
           </Select>
         </Box>
         <Box display="grid" gridTemplateColumns="1fr 1fr" mt="2rem">
-          <Select defaultValue={"800x600"} onChange={onResize}>
-            <MenuItem value="800x600">800x600</MenuItem>
-            <MenuItem value="1024x768">1024x768</MenuItem>
-            <MenuItem value="1280x720">1280x720</MenuItem>
-            <MenuItem value="1280x800">1280x800</MenuItem>
-            <MenuItem value="1366x768">1366x768</MenuItem>
-            <MenuItem value="1366x768">1440x900</MenuItem>
-            <MenuItem value="1600x900">1600x900</MenuItem>
-            <MenuItem value="1680x1050">1680x1050</MenuItem>
-            <MenuItem value="1920x1080">1920x1080</MenuItem>
-            <MenuItem value="2560x1440">2560x1440</MenuItem>
+          <Select defaultValue={"16/9"} onChange={onResize}>
+            <MenuItem value="16/10">16 / 10</MenuItem>
+            <MenuItem value="16/9">16 / 9</MenuItem>
+            <MenuItem value="4/3">4 / 3</MenuItem>
           </Select>
         </Box>
       </Box>

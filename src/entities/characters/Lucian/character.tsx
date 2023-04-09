@@ -1,13 +1,13 @@
 import { Box, Typography } from "@mui/material";
 import { CharacterType } from "../types";
-import cardImage from "./Lucian_card.png";
+import image from "./Lucian_bg.png";
 import defaultImage from "./Lucian_default.png";
 import { DIFFICULTIES } from "@/entities/maps/difficulties";
 
 export const Lucian: CharacterType = {
   name: "Lucian",
   shortDescription: ["[No Effects]"],
-  cardImage,
+  image,
   difficulty: DIFFICULTIES.easy,
   defaultEffects: [],
   defaultMainStats: {
