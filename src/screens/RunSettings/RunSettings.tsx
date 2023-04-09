@@ -2,11 +2,8 @@ import React from "react";
 import "./RunSettings.scss";
 import { Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-// import { Card } from "@/shared/molecules/CharacterCard/CharacterCard";
-import { ALL_CHARACTERS } from "@/entities/characters";
 import _ from "lodash";
 import { motion } from "framer-motion";
-import { DevourerCard } from "@/shared/molecules/DevourerCard/DevourerCard";
 import { useDispatch, useSelector } from "react-redux";
 import { startNewGame } from "@/app/store/character/character.slice";
 import {
@@ -16,7 +13,6 @@ import {
 import { OpeningScene } from "@/entities/scenes/opening/opening.scene";
 import { useTranslation } from "react-i18next";
 import { RootState } from "@/app/store";
-import { ALL_STORIES } from "@/entities/stories";
 import { Stories } from "./components/Stories";
 import { CharacterMainStory } from "@/entities/stories/types";
 

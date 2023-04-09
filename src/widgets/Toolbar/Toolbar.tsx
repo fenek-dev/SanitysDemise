@@ -1,13 +1,15 @@
 import { Avatar, Box, Button, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as Menu } from "@/app/assets/svgs/menu.svg";
 import { ReactComponent as Days } from "@/app/assets/svgs/days.svg";
 import { ReactComponent as Hours } from "@/app/assets/svgs/hours.svg";
 import { useTranslation } from "react-i18next";
+import { MenuModal } from "../MenuModal/MenuModal";
 
 export const Toolbar = () => {
   const { t } = useTranslation();
+  const [open, setOpen] = useState(false);
   return (
     <Box
       height="100%"
@@ -18,9 +20,7 @@ export const Toolbar = () => {
       justifyContent="space-between"
       color="white"
     >
-      <Link to="/">
-        <Menu width="3rem" height="3rem" />
-      </Link>
+      <Menu width="3rem" height="3rem" onClick={() => setOpen(true)} />
       <Box display="flex" gap="2rem">
         <Typography variant="h6" display="flex" alignItems="center">
           {t("hours", { count: 16 })}
@@ -31,6 +31,7 @@ export const Toolbar = () => {
           <Days width="2rem" height="2rem" />
         </Typography>
       </Box>
+      <MenuModal open={open} onClose={() => setOpen(false)} />
     </Box>
   );
 };

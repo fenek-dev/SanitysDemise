@@ -10,7 +10,7 @@ import {
 import { motion } from "framer-motion";
 import React from "react";
 import "./Settings.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Checkbox } from "@/shared/atoms/Checkbox/Checkbox";
 import { useTranslation } from "react-i18next";
 import _ from "lodash";
@@ -24,6 +24,7 @@ const aspectRatioClasses = {
 
 export const Settings = () => {
   const { i18n, t } = useTranslation();
+  const navigate = useNavigate();
 
   const onChange = (e: SelectChangeEvent<string>) => {
     i18n.changeLanguage(e.target.value as string);
@@ -107,9 +108,7 @@ export const Settings = () => {
         top="5rem"
         left="3rem"
       >
-        <Link to="/">
-          <Button>{t("Back")}</Button>
-        </Link>
+        <Button onClick={() => navigate(-1)}>{t("Back")}</Button>
       </Box>
     </motion.div>
   );
