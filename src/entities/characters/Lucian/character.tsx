@@ -3,6 +3,7 @@ import { CharacterType } from "../types";
 import image from "./Lucian_bg.png";
 import defaultImage from "./Lucian_default.png";
 import { DIFFICULTIES } from "@/entities/maps/difficulties";
+import _ from "lodash";
 
 export const Lucian: CharacterType = {
   name: "Lucian",

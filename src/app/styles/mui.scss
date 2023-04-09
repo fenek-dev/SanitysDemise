@@ -1,7 +1,7 @@
-.MuiInputBase-root {
-    border-radius: var(--radius) !important;
-    border: 0.3rem solid var(--main-color) !important;
-    font-size: 2.5rem !important;
+div.MuiInputBase-root {
+    border-radius: var(--radius);
+    border: 0.3rem solid var(--main-color);
+    font-size: 2.5rem;
 
     fieldset {
         border: none;
@@ -13,38 +13,44 @@
 }
 
 .MuiCard-root {
-    border-radius: 10px !important;
-    border: 0.3rem solid var(--main-color) !important;
+    border-radius: 10px;
+    border: 0.3rem solid var(--main-color);
 }
 
 .MuiPaper-root {
-    background-color: rgb(var(--bg-color-rgb)) !important;
+    background-color: rgb(var(--bg-color-rgb));
 }
 
 .MuiMenuItem-root {
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
 }
 
 button.MuiButtonBase-root {
     font-size: 3rem;
-    color: var(--main-color) !important;
-    background-color: rgba(var(--bg-color-rgb), 0.4) !important;
-    box-shadow: none !important;
-    border-radius: var(--radius) !important;
-    border: 0.3rem solid !important;
+    color: var(--main-color);
+    background-color: rgba(var(--bg-color-rgb), 0.4);
+    box-shadow: none;
+    border-radius: var(--radius);
+    border: 0.3rem solid;
     border-color: var(--main-color);
-    line-height: 1 !important;
+    line-height: 1;
+
+    &[data-checked="true"] {
+        border: 0.3rem solid var(--white-main-color);
+    }
 
     &:focus {
-        outline: 2px solid #475569 !important;
+        outline: 2px solid #475569;
     }
 
     &:hover {
-        background-color: rgba($color: #ffffff, $alpha: 0.8) !important;
+        border-color: var(--main-color);
+        background-color: rgba(var(--bg-color-rgb), 0.8);
+        border: 0.3rem solid;
     }
 
     &:disabled {
-        border-color: var(--disabled-color) !important;
-        background-color: rgba(var(--disabled-color-rgb), 0.6) !important;
+        border-color: var(--disabled-color);
+        background-color: rgba(var(--disabled-color-rgb), 0.6);
     }
 }

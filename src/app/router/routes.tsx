@@ -1,5 +1,5 @@
 import { ChooseCharacter } from "@/screens/ChooseCharacter/ChooseCharacter";
-import { ChooseDevourer } from "@/screens/ChooseDevourer/ChooseDevourer";
+import { RunSettings } from "@/screens/RunSettings/RunSettings";
 import { Game } from "@/screens/Game/Game";
 import Menu from "@/screens/Menu/Menu";
 import { Settings } from "@/screens/Settings/Settings";
@@ -14,7 +14,7 @@ export const RoutesList = () => {
         <Route path="/" element={<Menu />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/character" element={<ChooseCharacter />} />
-        <Route path="/devourer" element={<ChooseDevourer />} />
+        <Route path="/run_settings" element={<RunSettings />} />
         <Route path="/game" element={<Game />} />
       </Routes>
     </AnimatePresence>

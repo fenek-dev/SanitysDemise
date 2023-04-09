@@ -9,7 +9,6 @@ import {
   BasicSkillStats,
   CharacterType,
 } from "@/entities/characters/types";
-import { DevourerType } from "@/entities/devourers/type";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import _ from "lodash";
@@ -36,16 +35,10 @@ export const CharacterSlice = createSlice({
   reducers: {
     chooseCharacter: (state, action: PayloadAction<CharacterType>) => {
       state.selectedCharacter = action.payload;
-      console.log("action", action.payload);
     },
-    startNewGame: (state, action: PayloadAction<DevourerType>) => {
+    startNewGame: (state) => {
       state.currentMainStats = state.selectedCharacter.defaultMainStats;
       state.currentSkillStats = state.selectedCharacter.defaultSkillStats;
-      state.effects = _.concat(
-        state.selectedCharacter.defaultEffects,
-        action.payload.defaultEffects
-      );
-      console.log("action", action.payload);
     },
   },
 });

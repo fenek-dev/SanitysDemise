@@ -11,6 +11,8 @@ import { CharacterType } from "@/entities/characters/types";
 import { chooseCharacter } from "@/app/store/character/character.slice";
 import { useTranslation } from "react-i18next";
 import { RootState } from "@/app/store";
+import { setMainStory } from "@/app/store/general/general.slice";
+import { ALL_STORIES } from "@/entities/stories";
 
 export const ChooseCharacter = () => {
   const dispatch = useDispatch();
@@ -59,8 +61,14 @@ export const ChooseCharacter = () => {
         </Box>
 
         <Box position="absolute" bottom="3rem" right="3rem">
-          <Link to="/devourer">
-            <Button>{t("Select")}</Button>
+          <Link to="/run_settings">
+            <Button
+              onClick={() =>
+                dispatch(setMainStory(ALL_STORIES[selectedCharacter.name][0]))
+              }
+            >
+              {t("Select")}
+            </Button>
           </Link>
         </Box>
       </Box>
@@ -78,6 +86,7 @@ export const ChooseCharacter = () => {
             className="img-button"
             variant="outlined"
             onClick={onChoose(character)}
+            data-checked={selectedCharacter.name === character.name}
             sx={{
               ":before": {
                 background: `url("${character.image}") center center no-repeat`,
@@ -85,7 +94,7 @@ export const ChooseCharacter = () => {
               },
             }}
           >
-            <Typography variant="h5" className="img-button-text">
+            <Typography variant="h4" className="img-button-text">
               {t(character.name)}
             </Typography>
           </Button>

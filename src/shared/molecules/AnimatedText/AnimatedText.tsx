@@ -20,8 +20,6 @@ interface AnimatedTextProps {
 export const AnimatedText = ({ text }: AnimatedTextProps) => {
   const [currentText, setCurrentText] = useState(text);
 
-  console.log(currentText);
-
   const ctrls = useAnimation();
 
   useEffect(() => {

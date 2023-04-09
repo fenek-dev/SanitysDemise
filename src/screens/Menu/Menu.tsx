@@ -9,11 +9,6 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 const { ipcRenderer } = window.require("electron");
 
-console.log(
-  "[Menu.tsx]",
-  `Hello world from Electron ${process.versions.electron}!`
-);
-
 function Menu() {
   const [bg, setBg] = useState(0);
   const { t } = useTranslation();

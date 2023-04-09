@@ -1,27 +1,40 @@
 import React from "react";
-import "./ChooseDevourer.scss";
+import "./RunSettings.scss";
 import { Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 // import { Card } from "@/shared/molecules/CharacterCard/CharacterCard";
 import { ALL_CHARACTERS } from "@/entities/characters";
 import _ from "lodash";
 import { motion } from "framer-motion";
-import { ALL_DEVOURERS } from "@/entities/devourers";
 import { DevourerCard } from "@/shared/molecules/DevourerCard/DevourerCard";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { startNewGame } from "@/app/store/character/character.slice";
-import { DevourerType } from "@/entities/devourers/type";
-import { setCurrentScene } from "@/app/store/general/general.slice";
+import {
+  setCurrentScene,
+  setMainStory,
+} from "@/app/store/general/general.slice";
 import { OpeningScene } from "@/entities/scenes/opening/opening.scene";
 import { useTranslation } from "react-i18next";
+import { RootState } from "@/app/store";
+import { ALL_STORIES } from "@/entities/stories";
+import { Stories } from "./components/Stories";
+import { CharacterMainStory } from "@/entities/stories/types";
 
-export const ChooseDevourer = () => {
+export const RunSettings = () => {
+  const { selectedCharacter } = useSelector(
+    (state: RootState) => state.character
+  );
+  const { mainStory } = useSelector((state: RootState) => state.general);
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
-  const onChoose = (devourer: DevourerType) => () => {
-    dispatch(startNewGame(devourer));
+  const onGameStart = () => {
+    dispatch(startNewGame());
     dispatch(setCurrentScene(OpeningScene));
+  };
+
+  const onChoose = (story: CharacterMainStory) => {
+    dispatch(setMainStory(story));
   };
   return (
     <motion.div
@@ -32,43 +45,28 @@ export const ChooseDevourer = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <Typography
-        variant="h1"
-        textAlign="center"
-        mt="3rem"
-        fontWeight="medium"
-        className="stroke"
-      >
-        {t("Choose your devourer")}
-      </Typography>
+      <Box position="absolute" top="10rem" left="3rem" bottom="3rem">
+        <Stories
+          name={selectedCharacter.name}
+          selectedStory={mainStory!}
+          onChoose={onChoose}
+        />
+      </Box>
+
       <Box
         display="flex"
-        gap="5rem"
-        marginX="auto"
-        padding="5rem"
         justifyContent="center"
+        position="absolute"
+        bottom="3rem"
+        right="3rem"
+        zIndex="10"
+        onClick={onGameStart}
       >
-        {_.map(ALL_DEVOURERS, (devourer) => (
-          <DevourerCard
-            devourer={devourer}
-            to="/game"
-            onClick={onChoose(devourer)}
-            key={devourer.name}
-          >
-            <Typography
-              gutterBottom
-              variant="h3"
-              textAlign="center"
-              lineHeight={0.5}
-            >
-              {t(devourer.name)}
-            </Typography>
-            <Typography variant="body1" fontSize="1.4rem" lineHeight={1}>
-              {_.map(devourer.shortDescription, (desc) => t(desc))}
-            </Typography>
-          </DevourerCard>
-        ))}
+        <Link to="/game">
+          <Button>{t("Start game")}</Button>
+        </Link>
       </Box>
+
       <Box
         display="flex"
         justifyContent="center"
