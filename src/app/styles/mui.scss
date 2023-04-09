@@ -17,6 +17,12 @@ div.MuiAvatar-root {
     height: 3rem;
 }
 
+div.MuiTooltip-tooltip {
+    font-size: 1rem;
+    background: #000;
+    text-align: center;
+}
+
 .MuiCard-root {
     border-radius: 10px;
     border: 0.3rem solid var(--main-color);

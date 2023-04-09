@@ -38,6 +38,12 @@
         "weapon": "weapon",
         "unique": "unique",
         "common": "common",
-        "Lucian's katana": "Lucian's katana"
+        "Lucian's katana": "Lucian's katana",
+        "Charisma - Increase change to deal with people": "Charisma - Increase change to deal with people",
+        "Dexterity - Increase attack speed and chance to doge attacks": "Dexterity - Increase attack speed and chance to doge attacks",
+        "Faith - ": "Faith - ",
+        "Intelligence - Increase magic damage": "Intelligence - Increase magic damage",
+        "Perception - Increase chance to find items": "Perception - Increase chance to find items",
+        "Strength - Increase attack damage": "Strength - Increase attack damage"
     }
 }

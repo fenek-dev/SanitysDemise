@@ -32,4 +32,5 @@ export const EmptyCharacter: CharacterType = {
   defaultMainStats: EmptyMainStats,
   defaultSkillStats: EmptySkillStats,
   imageMap: EmptyCharacterImageMap,
+  defaultItems: [],
 };

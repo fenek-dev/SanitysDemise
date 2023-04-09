@@ -38,6 +38,12 @@
         "weapon": "оружие",
         "unique": "уникальный",
         "common": "обычный",
-        "Lucian's katana": "Катана Люциана"
+        "Lucian's katana": "Катана Люциана",
+        "Charisma - Increase change to deal with people": "Харизма - Увеличивает шанс поладить с людьми",
+        "Dexterity - Increase attack speed and chance to doge attacks": "Ловкость - Увеличивает скорость атак и шанс уворота",
+        "Faith - ": "Faith - ",
+        "Intelligence - Increase magic damage": "Интеллект - Увеличивает урон от магии",
+        "Perception - Increase chance to find items": "Восприятие - Увеличивает шанс нахождения предметов",
+        "Strength - Increase attack damage": "Сила - Увеличивает урон от атак"
     }
 }

@@ -8,6 +8,7 @@ import {
   Card as CardComponent,
   CardContent,
   CardMedia,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import _ from "lodash";
@@ -61,6 +62,7 @@ export const CharacterCard = ({
           padding="0"
           width="100%"
           className="russo"
+          zIndex="2"
         >
           {_.map(
             _.entries(character.defaultSkillStats),
@@ -76,9 +78,18 @@ export const CharacterCard = ({
                   margin="0 !important"
                   borderRight="0"
                 >
-                  <Typography variant="button">
-                    {t(STATS_MAP[statname].short)}
-                  </Typography>
+                  <Tooltip
+                    title={t(STATS_MAP[statname].desc)}
+                    disableInteractive
+                  >
+                    <Typography
+                      variant="button"
+                      sx={{ textDecoration: "underline" }}
+                      display="inline-block"
+                    >
+                      {t(STATS_MAP[statname].short)}
+                    </Typography>
+                  </Tooltip>
                   <span className="russo">{stat}</span>
                 </Box>
               );
@@ -94,6 +105,7 @@ export const CharacterCard = ({
           width="100%"
           position="absolute"
           top="4rem"
+          zIndex="1"
         >
           {_.map(
             _.dropRight(_.entries(character.defaultMainStats), 2),
