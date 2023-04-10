@@ -1,3 +1,5 @@
+import { EventType } from "@/entities/events/types";
+import { getEventByChance } from "@/entities/events/utils";
 import { LOCATION_NAMES } from "@/entities/locations";
 import { LocationType } from "@/entities/locations/types";
 import { Avatar, Box, Button, Typography } from "@mui/material";
@@ -10,12 +12,14 @@ interface LocationsGridProps {
   locations: LocationType[];
   currentLocation: LocationType;
   onChangeLocation: (loc: LOCATION_NAMES) => void;
+  onInvestigate: () => void;
 }
 
 export const LocationsGrid = ({
   locations,
   currentLocation,
   onChangeLocation,
+  onInvestigate,
 }: LocationsGridProps) => {
   const { t } = useTranslation();
 
@@ -77,15 +81,18 @@ export const LocationsGrid = ({
             </motion.div>
           ))}
         </AnimatePresence>
-        <Button
-          variant="contained"
-          fullWidth
-          sx={{
-            paddingY: "0",
-          }}
-        >
-          <Typography variant="h6">{t("Investigate")}</Typography>
-        </Button>
+        {currentLocation.name !== "Home" && (
+          <Button
+            variant="contained"
+            fullWidth
+            sx={{
+              paddingY: "0",
+            }}
+            onClick={onInvestigate}
+          >
+            <Typography variant="h6">{t("Investigate")}</Typography>
+          </Button>
+        )}
       </Box>
     </Box>
   );

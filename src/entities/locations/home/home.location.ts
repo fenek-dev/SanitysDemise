@@ -7,4 +7,5 @@ export const HomeLocation: LocationType = {
   image,
   thumbnail: "",
   subLocations: [RestSubloc],
+  availableEvents: [],
 };

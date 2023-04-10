@@ -16,6 +16,8 @@
         "PRC": "ВОС",
         "Easy": "Легко",
         "HELL": "УЖАС",
+        "hp": "{sign}{count} Здоровья",
+        "sp": "{sign}{count} Рассудка",
         "Lucian": "Люциан",
         "Valtarin": "Валтарин",
         "Watcher": "Наблюдатель",
@@ -44,6 +46,8 @@
         "Faith - ": "Faith - ",
         "Intelligence - Increase magic damage": "Интеллект - Увеличивает урон от магии",
         "Perception - Increase chance to find items": "Восприятие - Увеличивает шанс нахождения предметов",
-        "Strength - Increase attack damage": "Сила - Увеличивает урон от атак"
+        "Strength - Increase attack damage": "Сила - Увеличивает урон от атак",
+        "Run away": "Убежать",
+        "You find yourself in a dark alley, with the smell of blood in the air. You see a figure lurking in the shadows, but when you try to approach it, it disappears. You hear the sound of something dragging on the ground, and when you turn around, you see a trail of blood leading away from you.": "Ты находишься в темном переулке, в воздухе витает запах крови. Ты видишь, что какая-то темная фигура крадётся во тьме, но когда ты приближаешься, она исчезает. Раздаются звуки волочения по земле, обернувшись ты видишь кровавый след, ведущий от тебя."
     }
 }

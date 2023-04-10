@@ -69,6 +69,7 @@ export const Scenes = () => {
                 textAlign="center"
               >
                 <AnimatedText
+                  variant="h5"
                   text={t(currentScene?.stages[stage]?.subtitle || "") || ""}
                 />
               </Box>

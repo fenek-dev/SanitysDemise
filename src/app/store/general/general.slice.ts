@@ -1,3 +1,4 @@
+import { EventType } from "@/entities/events/types";
 import { ALL_LOCATIONS, LOCATION_NAMES } from "@/entities/locations";
 import { HomeLocation } from "@/entities/locations/home/home.location";
 import { LocationType } from "@/entities/locations/types";
@@ -10,8 +11,9 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface GeneralState {
   currentScene: SceneType | null;
-  currentScreen: "locations" | "event_1" | "event_2" | "fight";
+  currentScreen: "locations" | "event" | "fight";
   currentLocation: LocationType;
+  currentEvent?: EventType;
   mainStory?: CharacterMainStory;
 }
 
@@ -20,6 +22,7 @@ const initialState: GeneralState = {
   currentScreen: "locations",
   currentLocation: HomeLocation,
   mainStory: EmptyCharacterStory,
+  currentEvent: undefined,
 };
 
 export const GeneralSlice = createSlice({
@@ -29,14 +32,25 @@ export const GeneralSlice = createSlice({
     setCurrentScene: (state, action: PayloadAction<SceneType>) => {
       state.currentScene = action.payload;
     },
+    setCurrentScreen: (
+      state,
+      action: PayloadAction<GeneralState["currentScreen"]>
+    ) => {
+      state.currentScreen = action.payload;
+    },
     removeCurrentScene: (state) => {
       state.currentScene = null;
     },
     changeLocation: (state, action: PayloadAction<LOCATION_NAMES>) => {
+      state.currentScreen = "locations";
       state.currentLocation = ALL_LOCATIONS[action.payload];
     },
     setMainStory: (state, action: PayloadAction<CharacterMainStory>) => {
       state.mainStory = action.payload;
+    },
+    setCurrentEvent: (state, action: PayloadAction<EventType>) => {
+      state.currentScreen = "event";
+      state.currentEvent = action.payload;
     },
   },
 });
@@ -47,6 +61,8 @@ export const {
   removeCurrentScene,
   changeLocation,
   setMainStory,
+  setCurrentEvent,
+  setCurrentScreen,
 } = GeneralSlice.actions;
 
 export default GeneralSlice.reducer;

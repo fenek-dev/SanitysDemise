@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAnimation, motion } from "framer-motion";
-import { Typography } from "@mui/material";
+import { Typography, TypographyProps } from "@mui/material";
 import _ from "lodash";
 
 // const Title = styled.h2`
@@ -15,9 +15,15 @@ import _ from "lodash";
 
 interface AnimatedTextProps {
   text?: string;
+  variant?: TypographyProps["variant"];
+  speed?: number;
 }
 
-export const AnimatedText = ({ text }: AnimatedTextProps) => {
+export const AnimatedText = ({
+  text,
+  variant = "body1",
+  speed = 0.01,
+}: AnimatedTextProps) => {
   const [currentText, setCurrentText] = useState(text);
 
   const ctrls = useAnimation();
@@ -42,14 +48,14 @@ export const AnimatedText = ({ text }: AnimatedTextProps) => {
       opacity: 0,
       y: `0.25em`,
       transition: {
-        delay: 0.01 * delay,
+        delay: speed * delay,
       },
     },
     visible: {
       opacity: 1,
       y: `0em`,
       transition: {
-        delay: 0.01 * delay,
+        delay: speed * delay,
         duration: 1,
         ease: [0.2, 0.65, 0.3, 0.9],
       },
@@ -57,17 +63,22 @@ export const AnimatedText = ({ text }: AnimatedTextProps) => {
   });
 
   return (
-    <Typography variant="body1">
-      {_.split(currentText, "").map((character, index) => (
-        <motion.span
-          key={index}
-          initial="hidden"
-          animate={ctrls}
-          variants={characterAnimation(index)}
-        >
-          {character}
-        </motion.span>
-      ))}
+    <Typography variant={variant}>
+      {_.split(currentText, "").map((character, index) => {
+        if (character === "↵") return <br />;
+        return (
+          <Typography
+            component={motion.span}
+            variant={variant}
+            key={index}
+            initial="hidden"
+            animate={ctrls}
+            variants={characterAnimation(index)}
+          >
+            {character}
+          </Typography>
+        );
+      })}
     </Typography>
   );
 };

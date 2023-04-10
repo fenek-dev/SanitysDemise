@@ -1,5 +1,11 @@
 import { RootState } from "@/app/store";
-import { changeLocation } from "@/app/store/general/general.slice";
+import {
+  changeLocation,
+  setCurrentEvent,
+  setCurrentScene,
+} from "@/app/store/general/general.slice";
+import { EventType } from "@/entities/events/types";
+import { getEventByChance } from "@/entities/events/utils";
 import { ALL_LOCATIONS, LOCATION_NAMES } from "@/entities/locations";
 import { LocationType } from "@/entities/locations/types";
 import { LocationsGrid } from "@/shared/molecules/LocationsGrid/LocationsGrid";
@@ -14,14 +20,22 @@ export const Locations = () => {
   const dispatch = useDispatch();
   const [scope, animate] = useAnimate();
 
-  const onChangeLocation = async (loc: LOCATION_NAMES) => {
-    const animation = async () => {
-      await animate(scope.current, { opacity: 0 }, { duration: 0.2 });
-      dispatch(changeLocation(loc));
-      await animate(scope.current, { opacity: 1 }, { duration: 0.2 });
-    };
-    animation();
+  const animation = async (cb: Function) => {
+    await animate(scope.current, { opacity: 0 }, { duration: 0.2 });
+    cb();
+    await animate(scope.current, { opacity: 1 }, { duration: 0.2 });
   };
+  const onChangeLocation = async (loc: LOCATION_NAMES) => {
+    animation(() => dispatch(changeLocation(loc)));
+  };
+
+  const onInvestigate = async () => {
+    const event = getEventByChance(currentLocation.availableEvents);
+    animation(() => {
+      dispatch(setCurrentEvent(event));
+    });
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -58,6 +72,7 @@ export const Locations = () => {
             locations={_.values(ALL_LOCATIONS)}
             currentLocation={currentLocation}
             onChangeLocation={onChangeLocation}
+            onInvestigate={onInvestigate}
           />
         </Box>
       </Box>

@@ -42,10 +42,12 @@ export const CharacterSlice = createSlice({
       state.currentSkillStats = state.selectedCharacter.defaultSkillStats;
       state.items = state.selectedCharacter.defaultItems;
     },
+    setCharacter: (_state, action: PayloadAction<CharacterState>) =>
+      action.payload,
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { chooseCharacter, startNewGame } = CharacterSlice.actions;
+export const { chooseCharacter, startNewGame, setCharacter } =
+  CharacterSlice.actions;
 
 export default CharacterSlice.reducer;
