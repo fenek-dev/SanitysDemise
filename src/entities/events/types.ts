@@ -1,6 +1,6 @@
 import { RootState } from "@/app/store";
 
-export type ApplyableCharacterStats = "hp" | "sp";
+export type ApplyableCharacterStats = "hp" | "sp" | "money";
 
 export interface EventType {
   name: string;

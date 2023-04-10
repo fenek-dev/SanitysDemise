@@ -63,7 +63,12 @@ export const AnimatedText = ({
   });
 
   return (
-    <Typography variant={variant}>
+    <Typography
+      variant={variant}
+      sx={{
+        width: "100%",
+      }}
+    >
       {_.split(currentText, "").map((character, index) => {
         if (character === "↵") return <br />;
         return (

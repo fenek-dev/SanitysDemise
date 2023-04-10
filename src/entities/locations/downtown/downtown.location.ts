@@ -1,4 +1,8 @@
-import { AbandonedAlleyEvent } from "@/entities/events/oneActionEvents/AbandonedAlley/Abandoned Alley.event";
+import {
+  AbandonedAlleyEvent,
+  StrangeWomanEvent,
+  LostWalletEvent,
+} from "@/entities/events/oneActionEvents";
 import { LocationType } from "../types";
 import image from "./downtown.png";
 
@@ -7,5 +11,5 @@ export const DowntownLocation: LocationType = {
   image,
   thumbnail: "",
   subLocations: [],
-  availableEvents: [AbandonedAlleyEvent],
+  availableEvents: [AbandonedAlleyEvent, StrangeWomanEvent, LostWalletEvent],
 };

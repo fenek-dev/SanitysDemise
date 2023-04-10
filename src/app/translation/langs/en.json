@@ -18,6 +18,7 @@
         "HELL": "HELL",
         "hp": "{sign}{count} Health",
         "sp": "{sign}{count} Sanity",
+        "money": "{sign}{count} Money",
         "Lucian": "Lucian",
         "Valtarin": "Valtarin",
         "Watcher": "Watcher",
@@ -48,6 +49,10 @@
         "Perception - Increase chance to find items": "Perception - Increase chance to find items",
         "Strength - Increase attack damage": "Strength - Increase attack damage",
         "Run away": "Run away",
-        "You find yourself in a dark alley, with the smell of blood in the air. You see a figure lurking in the shadows, but when you try to approach it, it disappears. You hear the sound of something dragging on the ground, and when you turn around, you see a trail of blood leading away from you.": "You find yourself in a dark alley, with the smell of blood in the air. You see a figure lurking in the shadows, but when you try to approach it, it disappears. You hear the sound of something dragging on the ground, and when you turn around, you see a trail of blood leading away from you."
+        "You find yourself in a dark alley, with the smell of blood in the air. You see a figure lurking in the shadows, but when you try to approach it, it disappears. You hear the sound of something dragging on the ground, and when you turn around, you see a trail of blood leading away from you.": "You find yourself in a dark alley, with the smell of blood in the air. You see a figure lurking in the shadows, but when you try to approach it, it disappears. You hear the sound of something dragging on the ground, and when you turn around, you see a trail of blood leading away from you.",
+        "A woman with long, tangled hair and a tattered dress approaches you, asking for help. As you get closer, you realize that her eyes are empty, and she has no face. You try to run, but she grabs your arm, whispers \"You can't escape.\" and disappears.": "A woman with long, tangled hair and a tattered dress approaches you, asking for help. As you get closer, you realize that her eyes are empty, and she has no face. You try to run, but she grabs your arm, whispers \"You can't escape.\" and disappears.",
+        "Oh, fuck...": "Oh, fuck...",
+        "As you're walking down the street, you spot a wallet lying on the ground. Inside, you find a large sum of money. Lucky you!": "As you're walking down the street, you spot a wallet lying on the ground. Inside, you find a large sum of money. Lucky you!",
+        "Take money": "Take money"
     }
 }

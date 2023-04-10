@@ -5,7 +5,7 @@ import { EventType } from "../../types";
 import stage1 from "./stage1.png";
 
 export const AbandonedAlleyEvent: EventType = {
-  name: "The Abandoned Alley",
+  name: "Abandoned Alley",
   chance: 10,
   stages: {
     [EVENT_STAGE_RESERVED_NAMES.START]: {
