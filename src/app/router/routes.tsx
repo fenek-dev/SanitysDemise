@@ -5,6 +5,7 @@ import Menu from "@/screens/Menu/Menu";
 import { Settings } from "@/screens/Settings/Settings";
 import { AnimatePresence } from "framer-motion";
 import { Route, Routes, createHashRouter, useLocation } from "react-router-dom";
+import { Loading } from "@/screens/Loading/Loading";
 
 export const RoutesList = () => {
   const location = useLocation();
@@ -17,6 +18,7 @@ export const RoutesList = () => {
         <Route path="/run_settings" element={<RunSettings />} />
         <Route path="/game" element={<Game />} />
       </Routes>
+      <Loading />
     </AnimatePresence>
   );
 };
