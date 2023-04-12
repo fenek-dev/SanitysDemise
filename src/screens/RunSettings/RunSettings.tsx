@@ -15,6 +15,9 @@ import { useTranslation } from "react-i18next";
 import { RootState } from "@/app/store";
 import { Stories } from "./components/Stories";
 import { CharacterMainStory } from "@/entities/stories/types";
+import { useFade } from "@/app/hooks/useFade";
+import { StoryDescription } from "./components/StoryDescription";
+import { Difficulties } from "./components/Difficulties";
 
 export const RunSettings = () => {
   const { selectedCharacter } = useSelector(
@@ -23,6 +26,7 @@ export const RunSettings = () => {
   const { mainStory } = useSelector((state: RootState) => state.general);
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const [imgScope, animation] = useFade();
 
   const onGameStart = () => {
     dispatch(startNewGame());
@@ -30,7 +34,7 @@ export const RunSettings = () => {
   };
 
   const onChoose = (story: CharacterMainStory) => {
-    dispatch(setMainStory(story));
+    animation(() => dispatch(setMainStory(story)));
   };
   return (
     <motion.div
@@ -41,26 +45,23 @@ export const RunSettings = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <Box position="absolute" top="10rem" left="3rem" bottom="3rem">
+      <Box
+        position="absolute"
+        top="10rem"
+        left="3rem"
+        bottom="3rem"
+        right="3rem"
+        display="grid"
+        gridTemplateColumns="1fr 3fr 1fr"
+        gap="1rem"
+      >
         <Stories
           name={selectedCharacter.name}
           selectedStory={mainStory!}
           onChoose={onChoose}
         />
-      </Box>
-
-      <Box
-        display="flex"
-        justifyContent="center"
-        position="absolute"
-        bottom="3rem"
-        right="3rem"
-        zIndex="10"
-        onClick={onGameStart}
-      >
-        <Link to="/game">
-          <Button>{t("Start game")}</Button>
-        </Link>
+        <StoryDescription ref={imgScope} />
+        <Difficulties onGameStart={onGameStart} />
       </Box>
 
       <Box
@@ -72,7 +73,9 @@ export const RunSettings = () => {
         zIndex="10"
       >
         <Link to="/character">
-          <Button>{t("Back")}</Button>
+          <Button>
+            <Typography variant="h4">{t("Back")}</Typography>
+          </Button>
         </Link>
       </Box>
     </motion.div>

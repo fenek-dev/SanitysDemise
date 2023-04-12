@@ -16,6 +16,7 @@ export const Scenes = () => {
   const [stage, setStage] = useState<number>(0);
   const [scope, animate] = useAnimate();
   const dispatch = useDispatch();
+  console.log(currentScene);
 
   const animation = async () => {
     await animate(scope.current, { opacity: 0 }, { duration: 0.5 });

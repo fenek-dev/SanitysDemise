@@ -15,13 +15,11 @@ export const Stories = ({ name, selectedStory, onChoose }: StoriesProps) => {
   const { t } = useTranslation();
   return (
     <Box
-      bgcolor="rgba(var(--main-color-rgb), 0.8)"
-      border="2px solid var(--main-color)"
-      borderRadius="1rem"
+      borderRadius="0.3rem"
       display="inline-flex"
       flexDirection="column"
-      p="1rem"
       gap="1rem"
+      pt="1rem"
     >
       <Typography
         textAlign="center"
@@ -44,11 +42,11 @@ export const Stories = ({ name, selectedStory, onChoose }: StoriesProps) => {
           }}
         >
           <Typography
-            variant="h5"
+            variant="h6"
             fontWeight="medium"
             className="img-button-text"
           >
-            {t(story.name)}
+            {t(story.name)} (0/{story.ends})
           </Typography>
         </Button>
       ))}
