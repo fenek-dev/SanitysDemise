@@ -48,6 +48,7 @@ button.MuiButtonBase-root {
 
     &[data-checked="true"] {
         border: 0.3rem solid var(--white-main-color);
+        color: var(--white-main-color);
     }
 
     &:focus {

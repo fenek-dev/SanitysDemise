@@ -40,6 +40,10 @@
     overflow: hidden !important;
     width: 100%;
 
+    &[data-checked="true"]:after {
+        background-color: rgb(var(--main-color-rgb));
+    }
+
     .img-button-text {
         transition: 0.2s ease transform;
         z-index: 10;
@@ -60,7 +64,7 @@
 
     &:after {
         background-color: #d1d5db;
-        opacity: 0.4;
+        opacity: 0.5;
         z-index: 2;
     }
 

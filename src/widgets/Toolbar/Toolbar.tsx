@@ -12,15 +12,21 @@ export const Toolbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <Box
-      height="100%"
+      height="3rem"
       bgcolor="rgba(0, 0, 0, 0.6)"
-      border="3px solid var(--main-color)"
+      borderBottom="3px solid var(--main-color)"
       display="flex"
       alignItems="center"
       justifyContent="space-between"
       color="white"
+      px="1rem"
     >
-      <Menu width="3rem" height="3rem" onClick={() => setOpen(true)} />
+      <Menu
+        width="3rem"
+        height="3rem"
+        onClick={() => setOpen(true)}
+        cursor="pointer"
+      />
       <Box display="flex" gap="2rem">
         <Typography variant="h6" display="flex" alignItems="center">
           {t("hours", { count: 16 })}

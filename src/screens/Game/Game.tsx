@@ -1,14 +1,17 @@
 import { Avatar } from "@/widgets/Avatar/Avatar";
-import { GameFrame } from "@/widgets/GameFrame/GameFrame";
-import { Panel } from "@/widgets/Panel/Panel";
+import { Locations } from "@/screens/Game/frames/Locations/Locations";
 import { Scenes } from "@/widgets/Scenes/Scenes";
 import { Sidebar } from "@/widgets/Sidebar/Sidebar";
 import { Toolbar } from "@/widgets/Toolbar/Toolbar";
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { motion } from "framer-motion";
 import React from "react";
+import { Events } from "./frames/Events";
+import { useSelector } from "react-redux";
+import { RootState } from "@/app/store";
 
 export const Game = () => {
+  const { currentScreen } = useSelector((state: RootState) => state.general);
   return (
     <>
       <motion.div
@@ -18,7 +21,12 @@ export const Game = () => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <Grid
+        <Toolbar />
+        <Box height="calc(100% - 3rem)" width="100%" bgcolor="black">
+          {currentScreen === "locations" && <Locations />}
+          {currentScreen === "event" && <Events />}
+        </Box>
+        {/* <Grid
           className="full"
           container
           display="grid"
@@ -44,7 +52,7 @@ export const Game = () => {
             <Sidebar />
             <Avatar />
           </Grid>
-        </Grid>
+        </Grid> */}
       </motion.div>
       <Scenes />
     </>

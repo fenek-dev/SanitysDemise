@@ -14,4 +14,5 @@ export const EmptyCharacterStory: CharacterMainStory = {
   name: "",
   ends: 0,
   image: "",
+  description: "",
 };

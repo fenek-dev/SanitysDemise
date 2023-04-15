@@ -1,15 +1,9 @@
 import { RootState } from "@/app/store";
 import { setCharacter } from "@/app/store/character/character.slice";
-import {
-  changeLocation,
-  setCurrentScreen,
-} from "@/app/store/general/general.slice";
+import { setCurrentScreen } from "@/app/store/general/general.slice";
 import { EVENT_STAGE_RESERVED_NAMES } from "@/entities/events";
 import { EventStageButtonType } from "@/entities/events/types";
-import { ALL_LOCATIONS, LOCATION_NAMES } from "@/entities/locations";
-import { LocationType } from "@/entities/locations/types";
 import { AnimatedText } from "@/shared/molecules/AnimatedText/AnimatedText";
-import { LocationsGrid } from "@/shared/molecules/LocationsGrid/LocationsGrid";
 import { Box, Button, Typography } from "@mui/material";
 import { motion, useAnimate } from "framer-motion";
 import _ from "lodash";

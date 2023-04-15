@@ -13,8 +13,27 @@ export const Avatar = () => {
   return (
     <Box
       color="var(--white-main-color)"
-      borderTop="3px solid var(--main-color)"
+      border="2px solid var(--main-color)"
+      mt="auto"
+      width="100%"
     >
+      <Card
+        sx={{
+          width: "100%",
+          aspectRatio: "1",
+          position: "relative",
+          border: "none !important",
+          borderRadius: "0 !important",
+          background: "none !important",
+          boxShadow: "none !important",
+        }}
+      >
+        <CardMedia
+          sx={{ width: "100%", aspectRatio: "1" }}
+          image={selectedCharacter.imageMap.norm}
+        />
+      </Card>
+
       <Box display="grid" gridTemplateColumns="1fr 1fr" textAlign="center">
         <Box borderRight="2px solid var(--main-color)" className="hp-bg">
           <span className="main-stat hp">{currentMainStats.hp}</span>
@@ -25,23 +44,6 @@ export const Avatar = () => {
           <Typography variant="caption">sp</Typography>
         </Box>
       </Box>
-      <Card
-        sx={{
-          width: "16rem",
-          height: "16rem",
-          position: "relative",
-          border: "none !important",
-          borderTop: "2px solid var(--main-color) !important",
-          borderRadius: "0 !important",
-          background: "none !important",
-          boxShadow: "none !important",
-        }}
-      >
-        <CardMedia
-          sx={{ height: "16rem", width: "16rem" }}
-          image={selectedCharacter.imageMap.norm}
-        />
-      </Card>
     </Box>
   );
 };
