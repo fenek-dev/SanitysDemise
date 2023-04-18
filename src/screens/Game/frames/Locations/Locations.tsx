@@ -17,30 +17,26 @@ import React, { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { TabRows } from "./components/TabRows";
 import { MainSection } from "./components/MainSection";
+import { useFade } from "@/app/hooks/useFade";
 
 export const Locations = () => {
   const { currentLocation } = useSelector((state: RootState) => state.general);
   const dispatch = useDispatch();
-  const [scope, animate] = useAnimate();
-  const [tab, setTab] = useState<string>("backpack");
+  const [scope, animation] = useFade(0.3);
+  const [tab, setTab] = useState<string>("");
 
   const handleChange = useCallback(
-    (_event: unknown, value: string | number | boolean) => {
+    (_event: unknown, value: string | number | boolean | null) => {
       setTab(value as string);
     },
     []
   );
 
-  const animation = useCallback(
-    async (cb: Function) => {
-      await animate(scope.current, { opacity: 0 }, { duration: 0.2 });
-      cb();
-      await animate(scope.current, { opacity: 1 }, { duration: 0.2 });
-    },
-    [scope.current]
-  );
   const onChangeLocation = useCallback(async (loc: LOCATION_NAMES) => {
-    animation(() => dispatch(changeLocation(loc)));
+    handleChange(null, "");
+    animation(() => {
+      dispatch(changeLocation(loc));
+    });
   }, []);
 
   const onInvestigate = async () => {

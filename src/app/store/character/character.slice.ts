@@ -44,10 +44,15 @@ export const CharacterSlice = createSlice({
     },
     setCharacter: (_state, action: PayloadAction<CharacterState>) =>
       action.payload,
+    resetCharacterSlice: () => initialState,
   },
 });
 
-export const { chooseCharacter, startNewGame, setCharacter } =
-  CharacterSlice.actions;
+export const {
+  chooseCharacter,
+  startNewGame,
+  setCharacter,
+  resetCharacterSlice,
+} = CharacterSlice.actions;
 
 export default CharacterSlice.reducer;

@@ -52,6 +52,7 @@ export const GeneralSlice = createSlice({
       state.currentScreen = "event";
       state.currentEvent = action.payload;
     },
+    resetGeneralSlice: () => initialState,
   },
 });
 
@@ -63,6 +64,7 @@ export const {
   setMainStory,
   setCurrentEvent,
   setCurrentScreen,
+  resetGeneralSlice,
 } = GeneralSlice.actions;
 
 export default GeneralSlice.reducer;

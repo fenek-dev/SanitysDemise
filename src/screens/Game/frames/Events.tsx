@@ -1,3 +1,4 @@
+import { useFade } from "@/app/hooks/useFade";
 import { RootState } from "@/app/store";
 import { setCharacter } from "@/app/store/character/character.slice";
 import { setCurrentScreen } from "@/app/store/general/general.slice";
@@ -16,18 +17,12 @@ export const Events = () => {
   const character = useSelector((state: RootState) => state.character);
   const { currentEvent } = useSelector((state: RootState) => state.general);
   const dispatch = useDispatch();
-  const [scope, animate] = useAnimate();
+  const [scope, animation] = useFade();
   const [currentStage, setCurrentStage] = useState<string>(
     EVENT_STAGE_RESERVED_NAMES.START
   );
 
   const stage = currentEvent?.stages[currentStage];
-
-  const animation = async (cb: Function) => {
-    await animate(scope.current, { opacity: 0 }, { duration: 0.2 });
-    cb();
-    await animate(scope.current, { opacity: 1 }, { duration: 0.2 });
-  };
 
   const onButtonClick = (btn: EventStageButtonType) => {
     animation(() => {

@@ -7,9 +7,10 @@ import { Link } from "react-router-dom";
 interface MenuModalProps {
   open: boolean;
   onClose: () => void;
+  onExit: () => void;
 }
 
-export const MenuModal = ({ open, onClose }: MenuModalProps) => {
+export const MenuModal = ({ open, onClose, onExit }: MenuModalProps) => {
   const { t } = useTranslation();
   return (
     <Modal open={open} onClose={onClose}>
@@ -35,7 +36,7 @@ export const MenuModal = ({ open, onClose }: MenuModalProps) => {
         <Link to="/settings">
           <Button fullWidth>{t("Settings")}</Button>
         </Link>
-        <Link to="/">
+        <Link to="/" onClick={onExit}>
           <Button fullWidth>{t("Exit")}</Button>
         </Link>
       </Box>

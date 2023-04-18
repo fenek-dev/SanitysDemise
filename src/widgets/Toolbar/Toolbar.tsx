@@ -1,15 +1,23 @@
 import { Avatar, Box, Button, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as Menu } from "@/app/assets/svgs/menu.svg";
 import { ReactComponent as Days } from "@/app/assets/svgs/days.svg";
 import { ReactComponent as Hours } from "@/app/assets/svgs/hours.svg";
 import { useTranslation } from "react-i18next";
 import { MenuModal } from "../MenuModal/MenuModal";
+import { useDispatch } from "react-redux";
+import { resetGeneralSlice } from "@/app/store/general/general.slice";
+import { resetCharacterSlice } from "@/app/store/character/character.slice";
 
 export const Toolbar = () => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+  const onExit = useCallback(() => {
+    dispatch(resetGeneralSlice());
+    dispatch(resetCharacterSlice());
+  }, []);
   return (
     <Box
       height="3rem"
@@ -37,7 +45,7 @@ export const Toolbar = () => {
           <Days width="2rem" height="2rem" />
         </Typography>
       </Box>
-      <MenuModal open={open} onClose={() => setOpen(false)} />
+      <MenuModal open={open} onClose={() => setOpen(false)} onExit={onExit} />
     </Box>
   );
 };

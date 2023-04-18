@@ -7,6 +7,7 @@ import { AnimatePresence, motion, useAnimate } from "framer-motion";
 import { AnimatedText } from "@/shared/molecules/AnimatedText/AnimatedText";
 import { removeCurrentScene } from "@/app/store/general/general.slice";
 import { useTranslation } from "react-i18next";
+import { useFade } from "@/app/hooks/useFade";
 
 export const Scenes = () => {
   const { t } = useTranslation();
@@ -14,24 +15,18 @@ export const Scenes = () => {
     (state: RootState) => state.general.currentScene
   );
   const [stage, setStage] = useState<number>(0);
-  const [scope, animate] = useAnimate();
+  const [scope, animation] = useFade(0.5);
   const dispatch = useDispatch();
-  console.log(currentScene);
-
-  const animation = async () => {
-    await animate(scope.current, { opacity: 0 }, { duration: 0.5 });
-    setStage((val) => val + 1);
-    await animate(scope.current, { opacity: 1 }, { duration: 0.5, delay: 0.2 });
-  };
 
   const onClick = async () => {
-    if (_.size(currentScene?.stages) !== stage + 1) {
-      await animation();
-    } else {
-      await animate(scope.current, { opacity: 0 }, { duration: 0.5 });
+    animation(() => setStage((val) => val + 1));
+  };
+
+  useEffect(() => {
+    if (_.size(currentScene?.stages) < stage + 1) {
       dispatch(removeCurrentScene());
     }
-  };
+  }, [stage]);
 
   return (
     <>

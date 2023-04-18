@@ -14,6 +14,7 @@ import { RootState } from "@/app/store";
 import { setMainStory } from "@/app/store/general/general.slice";
 import { ALL_STORIES } from "@/entities/stories";
 import { ITEM_RARITY_COLOR } from "@/entities/items";
+import { useFade } from "@/app/hooks/useFade";
 
 export const ChooseCharacter = () => {
   const dispatch = useDispatch();
@@ -21,19 +22,10 @@ export const ChooseCharacter = () => {
   const { selectedCharacter } = useSelector(
     (state: RootState) => state.character
   );
-  const [scope, animate] = useAnimate();
+  const [scope, animation] = useFade();
 
   const onChoose = (character: CharacterType) => () => {
-    const animation = async () => {
-      await animate(scope.current, { opacity: 0 }, { duration: 0.5 });
-      dispatch(chooseCharacter(character));
-      await animate(
-        scope.current,
-        { opacity: 1 },
-        { duration: 0.5, delay: 0.2 }
-      );
-    };
-    animation();
+    animation(() => dispatch(chooseCharacter(character)));
   };
 
   return (
@@ -94,6 +86,7 @@ export const ChooseCharacter = () => {
       >
         {_.map(ALL_CHARACTERS, (character) => (
           <Button
+            key={character.name}
             className="img-button"
             variant="outlined"
             onClick={onChoose(character)}

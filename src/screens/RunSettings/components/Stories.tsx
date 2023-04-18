@@ -30,6 +30,7 @@ export const Stories = ({ name, selectedStory, onChoose }: StoriesProps) => {
       </Typography>
       {_.map(ALL_STORIES[name], (story) => (
         <Button
+          key={story.name}
           className="img-button"
           data-checked={selectedStory.name === story.name}
           onClick={() => onChoose(story)}
