@@ -1,31 +1,31 @@
+import { DIFFICULTIES } from "@/entities/maps/difficulties";
+
 import { CharacterType } from "../types";
 import image from "./Valtarin_bg.png";
 import defaultImage from "./Valtarin_default.png";
-import { DIFFICULTIES } from "@/entities/maps/difficulties";
-import _ from "lodash";
 
 export const Valtarin: CharacterType = {
-  name: "Valtarin",
-  shortDescription: ["[No Effects]"],
-  image,
-  difficulty: DIFFICULTIES.hell,
   defaultEffects: [],
+  defaultItems: [],
   defaultMainStats: {
     hp: 15,
-    sp: 40,
     maxHp: 15,
     maxSp: 40,
+    sp: 40,
   },
   defaultSkillStats: {
-    strength: 4,
-    dexterity: 6,
-    intelligence: 8,
     charisma: 5,
+    dexterity: 6,
     faith: 15,
+    intelligence: 8,
     perception: 4,
+    strength: 4,
   },
+  difficulty: DIFFICULTIES.hell,
+  image,
   imageMap: {
     norm: defaultImage,
   },
-  defaultItems: [],
+  name: "Valtarin",
+  shortDescription: ["[No Effects]"],
 };

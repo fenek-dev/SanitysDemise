@@ -1,8 +1,8 @@
-import React from "react";
 import { Modal as ModalComponent, ModalProps } from "@mui/material";
+import { AnimatePresence, motion } from "framer-motion";
+import React from "react";
 
 import "./Modal.scss";
-import { AnimatePresence, motion } from "framer-motion";
 
 const ForwardedModalComponent = React.forwardRef(
   (props: ModalProps, ref: any) => <ModalComponent ref={ref} {...props} />
@@ -15,18 +15,18 @@ export const Modal = ({
   ...props
 }: Omit<
   ModalProps,
-  "ref" | "onDrag" | "onDragEnd" | "onDragStart" | "onAnimationStart"
+  "onAnimationStart" | "onDrag" | "onDragEnd" | "onDragStart" | "ref"
 >) => (
   <AnimatePresence>
     {open && (
       <AnimatedModal
-        open
-        initial={{ transform: "translateX(100%)", opacity: 0 }}
-        animate={{ transform: "translateX(0%)", opacity: 1 }}
-        exit={{ transform: "translateX(100%)", opacity: 0 }}
-        transition={{ duration: 0.5 }}
-        hideBackdrop
+        animate={{ opacity: 1, transform: "translateX(0%)" }}
         className="modal"
+        exit={{ opacity: 0, transform: "translateX(100%)" }}
+        hideBackdrop
+        initial={{ opacity: 0, transform: "translateX(100%)" }}
+        open
+        transition={{ duration: 0.5 }}
         {...props}
       >
         {children}

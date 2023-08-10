@@ -9,32 +9,32 @@ export const StoryDescription = React.forwardRef((_props, ref) => {
   const { mainStory } = useSelector((state: RootState) => state.general);
   const { t } = useTranslation();
   return (
-    <Box width="100%" height="100%" display="flex" flexDirection="column">
+    <Box display="flex" flexDirection="column" height="100%" width="100%">
       <Box
-        m="1rem"
-        border="2px solid var(--white-main-color)"
-        borderRadius="0.3rem"
-        bgcolor="var(--main-color)"
         sx={{
           aspectRatio: "1.7",
         }}
+        bgcolor="var(--main-color)"
+        border="2px solid var(--white-main-color)"
+        borderRadius="0.3rem"
+        m="1rem"
       >
         <Box
-          ref={ref}
-          height="100%"
-          width="100%"
           sx={{
             background: `url("${mainStory?.image}") center center no-repeat`,
             backgroundSize: "cover",
           }}
+          height="100%"
+          ref={ref}
+          width="100%"
         />
       </Box>
       <Box
+        bgcolor="rgba(var(--bg-color-rgb), 0.5)"
+        border="2px solid var(--white-main-color)"
+        borderRadius="0.3rem"
         m="1rem"
         p="1rem"
-        bgcolor="rgba(var(--bg-color-rgb), 0.5)"
-        borderRadius="0.3rem"
-        border="2px solid var(--white-main-color)"
         textAlign="center"
       >
         <AnimatedText

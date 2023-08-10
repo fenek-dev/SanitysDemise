@@ -20,52 +20,52 @@ export const MainSection = React.forwardRef<
   return (
     <Box display="flex" flexDirection="column">
       <Box
-        display="flex"
-        flexDirection="column"
-        width="100%"
-        border="2px solid var(--white-main-color)"
-        borderRadius="0.3rem"
-        bgcolor="var(--main-color)"
         sx={{
           aspectRatio: "1.7",
         }}
+        bgcolor="var(--main-color)"
+        border="2px solid var(--white-main-color)"
+        borderRadius="0.3rem"
+        display="flex"
+        flexDirection="column"
+        width="100%"
       >
         <Box
-          height="100%"
-          width="100%"
-          ref={scope}
           sx={{
             background: `url("${currentLocation.image}") center center no-repeat`,
             backgroundSize: "cover",
           }}
+          height="100%"
+          ref={scope}
+          width="100%"
         >
           <Backpack />
         </Box>
       </Box>
       <Box
         display="grid"
-        gridTemplateColumns="repeat(3, 1fr)"
         gap="0.5rem"
+        gridTemplateColumns="repeat(3, 1fr)"
         minWidth="13rem"
         py="1rem"
       >
         <AnimatePresence>
           {_.map(currentLocation.subLocations, (subloc) => (
             <motion.div
-              initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              initial={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
             >
               <Button
-                className="img-button"
                 sx={{
-                  paddingY: "0",
                   ":before": {
                     background: `url("${subloc?.image}") center center no-repeat`,
                     backgroundSize: "cover",
                   },
+                  paddingY: "0",
                 }}
+                className="img-button"
               >
                 <Typography
                   className="img-button-text"
@@ -79,18 +79,18 @@ export const MainSection = React.forwardRef<
           ))}
           {currentLocation.name !== HomeLocation.name && (
             <motion.span
-              initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              initial={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
             >
               <Button
-                variant="contained"
-                fullWidth
                 sx={{
                   paddingY: "0",
                 }}
+                fullWidth
                 onClick={onInvestigate}
+                variant="contained"
               >
                 <Typography variant="h6">{t("Investigate")}</Typography>
               </Button>

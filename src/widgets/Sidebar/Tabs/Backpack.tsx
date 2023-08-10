@@ -17,20 +17,20 @@ export const Backpack = () => {
   return (
     <TabPanel value="backpack">
       <Box
-        component={motion.div}
-        initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        component={motion.div}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
         height="100%"
+        initial={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
       >
         <Box
+          bgcolor="rgba(var(--main-color-rgb), 0.9)"
           display="flex"
           flexDirection="column"
-          height="100%"
-          bgcolor="rgba(var(--main-color-rgb), 0.9)"
-          p="1rem"
           gap="1rem"
+          height="100%"
+          p="1rem"
         >
           {_.map(items, (item) => (
             <Item item={item} onClick={() => setItem(item)} />
@@ -44,9 +44,9 @@ export const Backpack = () => {
         </Box>
         {Boolean(selectedItem) && selectedItem && (
           <ItemModal
-            open={Boolean(open)}
-            onClose={() => setItem(null)}
             item={selectedItem}
+            onClose={() => setItem(null)}
+            open={Boolean(selectedItem)}
           />
         )}
       </Box>

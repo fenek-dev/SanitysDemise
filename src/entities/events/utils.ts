@@ -1,4 +1,5 @@
 import _ from "lodash";
+
 import { EventType } from "./types";
 
 const createDistribution = (weights: number[], size: number) => {

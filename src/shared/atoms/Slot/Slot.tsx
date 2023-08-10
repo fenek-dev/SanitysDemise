@@ -1,6 +1,7 @@
 import { Button, ButtonProps } from "@mui/material";
-import "./Slot.scss";
 import { Link } from "react-router-dom";
+
+import "./Slot.scss";
 
 interface SlotProps extends ButtonProps {
   to: string;

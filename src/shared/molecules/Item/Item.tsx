@@ -12,36 +12,36 @@ export const Item = ({ item, onClick }: ItemProps) => {
   const { t } = useTranslation();
   return (
     <Box
-      display="flex"
-      border="2px solid var(--white-main-color)"
-      borderRadius="0.5rem"
-      height="3rem"
-      onClick={onClick}
       sx={{
         cursor: "pointer",
       }}
+      border="2px solid var(--white-main-color)"
+      borderRadius="0.5rem"
+      display="flex"
+      height="3rem"
+      onClick={onClick}
     >
       {item && (
         <Box
-          height="100%"
           sx={{
+            aspectRatio: "1",
             background: `url("${item.icon}") center center no-repeat`,
             backgroundSize: "cover",
-            aspectRatio: "1",
           }}
+          height="100%"
         ></Box>
       )}
       <Box
+        alignItems="center"
         display="flex"
         justifyContent="center"
-        alignItems="center"
         width="100%"
       >
         <Typography
           color={ITEM_RARITY_COLOR[item?.rarity || "common"]}
+          display="block"
           textAlign="center"
           variant="h6"
-          display="block"
         >
           {t(item?.name || "EMPTY")}
         </Typography>

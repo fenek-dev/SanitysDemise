@@ -1,3 +1,4 @@
+import { useFade } from "@/app/hooks/useFade";
 import { RootState } from "@/app/store";
 import {
   changeLocation,
@@ -10,9 +11,9 @@ import { Tabs } from "@mui/base";
 import _ from "lodash";
 import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { TabRows } from "./components/TabRows";
+
 import { MainSection } from "./components/MainSection";
-import { useFade } from "@/app/hooks/useFade";
+import { TabRows } from "./components/TabRows";
 
 export const Locations = () => {
   const { currentLocation } = useSelector((state: RootState) => state.general);
@@ -21,7 +22,7 @@ export const Locations = () => {
   const [tab, setTab] = useState<string>("");
 
   const handleChange = useCallback(
-    (_event: unknown, value: string | number | boolean | null) => {
+    (_event: unknown, value: boolean | null | number | string) => {
       setTab(value as string);
     },
     []
@@ -32,6 +33,7 @@ export const Locations = () => {
     animation(() => {
       dispatch(changeLocation(loc));
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onInvestigate = async () => {
@@ -43,21 +45,21 @@ export const Locations = () => {
 
   return (
     <Tabs
-      value={tab}
-      onChange={handleChange}
       style={{
         background: "black",
-        height: "100%",
-        width: "100%",
         display: "grid",
-        gridTemplateColumns: "1fr 5fr 1fr",
         gap: "1rem",
+        gridTemplateColumns: "1fr 5fr 1fr",
+        height: "100%",
         padding: "1rem",
+        width: "100%",
       }}
+      onChange={handleChange}
+      value={tab}
     >
       <LocationsRows
-        locations={_.values(ALL_LOCATIONS)}
         currentLocation={currentLocation}
+        locations={_.values(ALL_LOCATIONS)}
         onChangeLocation={onChangeLocation}
       />
       <MainSection

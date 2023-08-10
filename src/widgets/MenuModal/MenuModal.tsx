@@ -1,41 +1,40 @@
 import { Box, Button, Modal } from "@mui/material";
 import { useTranslation } from "react-i18next";
-
 import { Link } from "react-router-dom";
 
 interface MenuModalProps {
-  open: boolean;
   onClose: () => void;
   onExit: () => void;
+  open: boolean;
 }
 
-export const MenuModal = ({ open, onClose, onExit }: MenuModalProps) => {
+export const MenuModal = ({ onClose, onExit, open }: MenuModalProps) => {
   const { t } = useTranslation();
   return (
-    <Modal open={open} onClose={onClose}>
+    <Modal onClose={onClose} open={open}>
       <Box
-        position="fixed"
-        top="50%"
-        left="50%"
-        p="1rem"
-        bgcolor="black"
-        color="var(--white-main-color)"
-        borderRadius="0.5rem"
-        border="2px solid var(--white-main-color)"
-        display="flex"
-        flexDirection="column"
-        gap="1rem"
         sx={{
           transform: "translate(-50%, -50%)",
         }}
+        bgcolor="black"
+        border="2px solid var(--white-main-color)"
+        borderRadius="0.5rem"
+        color="var(--white-main-color)"
+        display="flex"
+        flexDirection="column"
+        gap="1rem"
+        left="50%"
+        p="1rem"
+        position="fixed"
+        top="50%"
       >
-        <Button onClick={onClose} fullWidth>
+        <Button fullWidth onClick={onClose}>
           {t("Resume")}
         </Button>
         <Link to="/settings">
           <Button fullWidth>{t("Settings")}</Button>
         </Link>
-        <Link to="/" onClick={onExit}>
+        <Link onClick={onExit} to="/">
           <Button fullWidth>{t("Exit")}</Button>
         </Link>
       </Box>

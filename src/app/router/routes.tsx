@@ -1,22 +1,22 @@
 import { ChooseCharacter } from "@/screens/ChooseCharacter/ChooseCharacter";
-import { RunSettings } from "@/screens/RunSettings/RunSettings";
 import { Game } from "@/screens/Game/Game";
+import { Loading } from "@/screens/Loading/Loading";
 import Menu from "@/screens/Menu/Menu";
+import { RunSettings } from "@/screens/RunSettings/RunSettings";
 import { Settings } from "@/screens/Settings/Settings";
 import { AnimatePresence } from "framer-motion";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Loading } from "@/screens/Loading/Loading";
 
 export const RoutesList = () => {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Menu />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/character" element={<ChooseCharacter />} />
-        <Route path="/run_settings" element={<RunSettings />} />
-        <Route path="/game" element={<Game />} />
+      <Routes key={location.pathname} location={location}>
+        <Route element={<Menu />} path="/" />
+        <Route element={<Settings />} path="/settings" />
+        <Route element={<ChooseCharacter />} path="/character" />
+        <Route element={<RunSettings />} path="/run_settings" />
+        <Route element={<Game />} path="/game" />
       </Routes>
       <Loading />
     </AnimatePresence>

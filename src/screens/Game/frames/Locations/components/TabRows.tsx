@@ -15,32 +15,32 @@ export const TabRows = React.memo(() => {
 
       // width="100%"
       >
-        <Tab value="info" className="sidebar-tab">
+        <Tab className="sidebar-tab" value="info">
           <Button fullWidth>
             <Typography variant="h5">{t("Character Info")}</Typography>
           </Button>
         </Tab>
-        <Tab value="equip" className="sidebar-tab">
+        <Tab className="sidebar-tab" value="equip">
           <Button fullWidth>
             <Typography variant="h5">{t("Equipment")}</Typography>
           </Button>
         </Tab>
-        <Tab value="backpack" className="sidebar-tab">
+        <Tab className="sidebar-tab" value="backpack">
           <Button fullWidth>
             <Typography variant="h5">{t("Backpack")}</Typography>
           </Button>
         </Tab>
-        <Tab value="wounds" className="sidebar-tab">
+        <Tab className="sidebar-tab" value="wounds">
           <Button fullWidth>
             <Typography variant="h5">{t("Wounds")}</Typography>
           </Button>
         </Tab>
-        <Tab value="quests" className="sidebar-tab">
+        <Tab className="sidebar-tab" value="quests">
           <Button fullWidth>
             <Typography variant="h5">{t("Quests")}</Typography>
           </Button>
         </Tab>
-        <Tab value="effects" className="sidebar-tab">
+        <Tab className="sidebar-tab" value="effects">
           <Button fullWidth>
             <Typography variant="h5">{t("Effects")}</Typography>
           </Button>

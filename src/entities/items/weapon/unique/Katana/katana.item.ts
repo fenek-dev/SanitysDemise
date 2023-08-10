@@ -1,16 +1,15 @@
 import { WeaponType } from "../../../types";
-
 import icon from "./icon.png";
 
 export const Katana_weapon: WeaponType = {
-  name: "Katana",
-  type: "weapon",
+  cost: 0,
   description: "Lucian's katana",
+  dmg_up: 3,
+  equipable: true,
   icon,
+  name: "Katana",
   rarity: "unique",
   saleable: false,
   throwable: true,
-  equipable: true,
-  cost: 0,
-  dmg_up: 3,
+  type: "weapon",
 };

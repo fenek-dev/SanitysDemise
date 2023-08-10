@@ -11,12 +11,12 @@ type DifficultiesMapType = Record<keyof typeof DIFFICULTIES, React.ReactNode>;
 export const DIFFICULTIES_MAP: (t: TFunction) => DifficultiesMapType = (t) => ({
   _empty: "_empty",
   easy: (
-    <Typography variant="h4" textAlign="center" color="var(--easy-color)">
+    <Typography color="var(--easy-color)" textAlign="center" variant="h4">
       [{t("Easy")}]
     </Typography>
   ),
   hell: (
-    <Typography variant="h4" textAlign="center" color="var(--impossible-color)">
+    <Typography color="var(--impossible-color)" textAlign="center" variant="h4">
       [{t("HELL")}]
     </Typography>
   ),

@@ -15,18 +15,18 @@ interface SettingsProps {
 export const Settings = ({ close }: SettingsProps) => {
   return (
     <Box display="flex" flexDirection="column" minWidth="100%">
-      <Box display="flex" justifyContent="space-between" fontSize="2rem">
+      <Box display="flex" fontSize="2rem" justifyContent="space-between">
         <FormControlLabel
-          control={<Checkbox defaultChecked />}
           label={
             <Typography sx={{ fontSize: "2.5rem" }}>FullScreen</Typography>
           }
+          control={<Checkbox defaultChecked />}
         />
         <FormControlLabel
-          control={<Checkbox defaultChecked />}
           label={
             <Typography sx={{ fontSize: "2.5rem" }}>Voice Acting</Typography>
           }
+          control={<Checkbox defaultChecked />}
         />
       </Box>
       <Box display="grid" gridTemplateColumns="1fr 1fr">
@@ -35,7 +35,7 @@ export const Settings = ({ close }: SettingsProps) => {
           <MenuItem value="rus">Русский</MenuItem>
         </Select>
       </Box>
-      <Button sx={{ mt: "4rem" }} onClick={close}>
+      <Button onClick={close} sx={{ mt: "4rem" }}>
         Close
       </Button>
     </Box>

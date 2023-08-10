@@ -1,25 +1,26 @@
+import { RootState } from "@/app/store";
 import { Locations } from "@/screens/Game/frames/Locations/Locations";
 import { Scenes } from "@/widgets/Scenes/Scenes";
 import { Toolbar } from "@/widgets/Toolbar/Toolbar";
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
-import { Events } from "./frames/Events";
 import { useSelector } from "react-redux";
-import { RootState } from "@/app/store";
+
+import { Events } from "./frames/Events";
 
 export const Game = () => {
   const { currentScreen } = useSelector((state: RootState) => state.general);
   return (
     <>
       <motion.div
-        className="full"
-        initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        className="full"
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
+        initial={{ opacity: 0 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
       >
         <Toolbar />
-        <Box height="calc(100% - 3rem)" width="100%" bgcolor="black">
+        <Box bgcolor="black" height="calc(100% - 3rem)" width="100%">
           {currentScreen === "locations" && <Locations />}
           {currentScreen === "event" && <Events />}
         </Box>

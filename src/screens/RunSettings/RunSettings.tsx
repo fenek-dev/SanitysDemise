@@ -1,22 +1,22 @@
-import "./RunSettings.scss";
-import { Box, Button, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
-import _ from "lodash";
-import { motion } from "framer-motion";
-import { useDispatch, useSelector } from "react-redux";
+import { useFade } from "@/app/hooks/useFade";
+import { RootState } from "@/app/store";
 import { startNewGame } from "@/app/store/character/character.slice";
 import {
   setCurrentScene,
   setMainStory,
 } from "@/app/store/general/general.slice";
 import { OpeningScene } from "@/entities/scenes/opening/opening.scene";
-import { useTranslation } from "react-i18next";
-import { RootState } from "@/app/store";
-import { Stories } from "./components/Stories";
 import { CharacterMainStory } from "@/entities/stories/types";
-import { useFade } from "@/app/hooks/useFade";
-import { StoryDescription } from "./components/StoryDescription";
+import { Box, Button, Typography } from "@mui/material";
+import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
+import "./RunSettings.scss";
 import { Difficulties } from "./components/Difficulties";
+import { Stories } from "./components/Stories";
+import { StoryDescription } from "./components/StoryDescription";
 
 export const RunSettings = () => {
   const { selectedCharacter } = useSelector(
@@ -37,27 +37,27 @@ export const RunSettings = () => {
   };
   return (
     <motion.div
-      className="full choose-devourer-bg"
-      key="choose"
-      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      className="full choose-devourer-bg"
       exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      key="choose"
       transition={{ duration: 0.5 }}
     >
       <Box
-        position="absolute"
-        top="10rem"
-        left="3rem"
         bottom="3rem"
-        right="3rem"
         display="grid"
-        gridTemplateColumns="1fr 3fr 1fr"
         gap="1rem"
+        gridTemplateColumns="1fr 3fr 1fr"
+        left="3rem"
+        position="absolute"
+        right="3rem"
+        top="10rem"
       >
         <Stories
           name={selectedCharacter.name}
-          selectedStory={mainStory!}
           onChoose={onChoose}
+          selectedStory={mainStory!}
         />
         <StoryDescription ref={imgScope} />
         <Difficulties onGameStart={onGameStart} />
@@ -66,9 +66,9 @@ export const RunSettings = () => {
       <Box
         display="flex"
         justifyContent="center"
+        left="3rem"
         position="absolute"
         top="3rem"
-        left="3rem"
         zIndex="10"
       >
         <Link to="/character">

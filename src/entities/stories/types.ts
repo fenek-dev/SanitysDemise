@@ -1,6 +1,6 @@
 export interface CharacterMainStory {
-  name: string;
+  description: string;
   ends: number;
   image: string;
-  description: string;
+  name: string;
 }

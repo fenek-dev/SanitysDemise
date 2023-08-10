@@ -37,41 +37,41 @@ export const Events = () => {
   };
   return (
     <motion.div
-      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      initial={{ opacity: 0 }}
       style={{ background: "black", height: "100%", width: "100%" }}
+      transition={{ duration: 0.5 }}
     >
       <Box
-        zIndex="1000"
+        bgcolor="black"
         display="flex"
         flexDirection="column"
-        bgcolor="black"
         height="100%"
         width="100%"
+        zIndex="1000"
       >
         <Box
-          height="calc(100%)"
-          width="100%"
-          ref={scope}
           sx={{
             background: `url("${stage?.image}") center center no-repeat`,
             backgroundSize: "cover",
           }}
+          height="calc(100%)"
           position="relative"
+          ref={scope}
+          width="100%"
         >
           <Box
+            bottom="2rem"
             display="flex"
             gap="2rem"
-            position="absolute"
-            bottom="2rem"
             left="2rem"
+            position="absolute"
             right="2rem"
           >
             {_.map(stage?.buttons, (btn) => (
-              <Button onClick={() => onButtonClick(btn)} fullWidth>
-                <Typography variant="h5" py="1rem">
+              <Button fullWidth onClick={() => onButtonClick(btn)}>
+                <Typography py="1rem" variant="h5">
                   {t(btn.text)}
                 </Typography>
               </Button>
@@ -79,11 +79,11 @@ export const Events = () => {
           </Box>
         </Box>
         <Box
-          width="100%"
-          padding="2rem"
           color="var(--white-main-color)"
           display="flex"
+          padding="2rem"
           textAlign="center"
+          width="100%"
         >
           <AnimatedText
             text={`${t(stage?.description || "")}↵${_.map(
@@ -94,8 +94,8 @@ export const Events = () => {
                   sign: effect.value > 0 ? "+" : "-",
                 })})`
             ).join("")}`}
-            variant="h6"
             speed={0.005}
+            variant="h6"
           />
         </Box>
       </Box>

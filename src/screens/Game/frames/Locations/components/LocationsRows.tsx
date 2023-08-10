@@ -6,13 +6,13 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 interface LocationsGridProps {
-  locations: LocationType[];
   currentLocation: LocationType;
+  locations: LocationType[];
   onChangeLocation: (loc: LOCATION_NAMES) => void;
 }
 
 export const LocationsRows = React.memo(
-  ({ locations, currentLocation, onChangeLocation }: LocationsGridProps) => {
+  ({ currentLocation, locations, onChangeLocation }: LocationsGridProps) => {
     const { t } = useTranslation();
 
     return (
@@ -20,18 +20,18 @@ export const LocationsRows = React.memo(
         <Box display="flex" flexDirection="column" gap="1rem" width="100%">
           {_.map(locations, (loc) => (
             <Button
-              className="img-button"
-              onClick={() => onChangeLocation(loc.name)}
-              data-checked={currentLocation.name === loc.name}
               sx={{
                 ":before": {
                   background: `url("${loc.image}") center center no-repeat`,
                   backgroundSize: "cover",
                 },
               }}
+              className="img-button"
+              data-checked={currentLocation.name === loc.name}
               fullWidth
+              onClick={() => onChangeLocation(loc.name)}
             >
-              <Typography variant="h5" className="img-button-text">
+              <Typography className="img-button-text" variant="h5">
                 {t(loc.name)}
               </Typography>
             </Button>

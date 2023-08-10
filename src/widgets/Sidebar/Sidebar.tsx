@@ -1,11 +1,12 @@
+import { Tab, Tabs, TabsList } from "@mui/base";
 import { Avatar, Box } from "@mui/material";
+import { AnimatePresence, motion } from "framer-motion";
 import { SyntheticEvent, useState } from "react";
+
+import "./Sidebar.scss";
+import { Backpack } from "./Tabs/Backpack";
 import backpack from "./icons/backpack.png";
 import kit from "./icons/kit.png";
-import { AnimatePresence, motion } from "framer-motion";
-import "./Sidebar.scss";
-import { Tab, TabsList, Tabs } from "@mui/base";
-import { Backpack } from "./Tabs/Backpack";
 
 export const Sidebar = () => {
   const [open, setOpen] = useState<string>("backpack");
@@ -19,20 +20,20 @@ export const Sidebar = () => {
 
   return (
     <Box className="sidebar">
-      <Tabs value={open} onChange={handleChange} className="sidebar-tabs">
+      <Tabs className="sidebar-tabs" onChange={handleChange} value={open}>
         <TabsList className="sidebar-tabs-list">
-          <Tab value="backpack" className="sidebar-tab">
+          <Tab className="sidebar-tab" value="backpack">
             <Avatar src={backpack} variant="rounded" />
           </Tab>
-          <Tab value="kit" className="sidebar-tab">
+          <Tab className="sidebar-tab" value="kit">
             <Avatar src={kit} variant="rounded" />
           </Tab>
         </TabsList>
         <AnimatePresence>
           <motion.div
+            animate={{ opacity: Boolean(open) ? 1 : 0 }}
             className="sidebar-tabs-content"
             initial={{ opacity: 0 }}
-            animate={{ opacity: Boolean(open) ? 1 : 0 }}
             transition={{ duration: 0.2 }}
           >
             <Backpack />
