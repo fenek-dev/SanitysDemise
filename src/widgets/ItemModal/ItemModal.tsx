@@ -1,62 +1,60 @@
+import { ReactComponent as Sale } from "@/app/assets/modal/Sale.svg";
+import { ReactComponent as Equip } from "@/app/assets/modal/equip.svg";
+import { ReactComponent as Throw } from "@/app/assets/modal/throw.svg";
 import { ITEM_RARITY_COLOR } from "@/entities/items";
 import { ItemType } from "@/entities/items/types";
-import { Avatar, Box, IconButton, Modal, Typography } from "@mui/material";
-import React from "react";
+import { Box, Modal, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
-import { ReactComponent as Equip } from "@/app/assets/modal/equip.svg";
-import { ReactComponent as Sale } from "@/app/assets/modal/Sale.svg";
-import { ReactComponent as Throw } from "@/app/assets/modal/throw.svg";
-
 interface ItemModelProps {
-  open: boolean;
-  onClose: () => void;
   item: ItemType;
+  onClose: () => void;
+  open: boolean;
 }
 
-export const ItemModal = ({ open, onClose, item }: ItemModelProps) => {
+export const ItemModal = ({ item, onClose, open }: ItemModelProps) => {
   const { t } = useTranslation();
   return (
-    <Modal open={open} onClose={onClose}>
+    <Modal onClose={onClose} open={open}>
       <Box
-        position="fixed"
-        top="30%"
-        left="50%"
-        width="60rem"
-        height="30rem"
-        p="1rem"
-        bgcolor="black"
-        color="var(--white-main-color)"
-        borderRadius="0.5rem"
-        border="2px solid var(--white-main-color)"
-        display="flex"
-        flexDirection="column"
         sx={{
           transform: "translate(-50%, -30%)",
         }}
+        bgcolor="black"
+        border="2px solid var(--white-main-color)"
+        borderRadius="0.5rem"
+        color="var(--white-main-color)"
+        display="flex"
+        flexDirection="column"
+        height="30rem"
+        left="50%"
+        p="1rem"
+        position="fixed"
+        top="30%"
+        width="60rem"
       >
         <>
           <Box display="flex" gap="1rem" height="100%" width="100%">
             <Box
-              height="100%"
-              borderRadius="0.5rem"
-              border="2px solid var(--white-main-color)"
               sx={{
+                aspectRatio: "1",
                 background: `url("${item.icon}") center center no-repeat`,
                 backgroundSize: "cover",
-                aspectRatio: "1",
               }}
+              border="2px solid var(--white-main-color)"
+              borderRadius="0.5rem"
+              height="100%"
             />
             <Box
-              height="100%"
-              width="100%"
               display="flex"
               flexDirection="column"
+              height="100%"
+              width="100%"
             >
-              <Typography variant="h4" textAlign="center">
+              <Typography textAlign="center" variant="h4">
                 {t(item.name)}{" "}
               </Typography>
-              <Typography textAlign="center" fontSize="1rem">
+              <Typography fontSize="1rem" textAlign="center">
                 [{t(item.type)}]
                 <Typography
                   display="inline"
@@ -65,7 +63,7 @@ export const ItemModal = ({ open, onClose, item }: ItemModelProps) => {
                   [{t(item.rarity)}]
                 </Typography>
               </Typography>
-              <Typography variant="h6" textAlign="center" mt="2rem">
+              <Typography mt="2rem" textAlign="center" variant="h6">
                 {t(item.description)}
               </Typography>
             </Box>

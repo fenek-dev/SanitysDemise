@@ -1,11 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import generalReducer from "./general/general.slice";
+
 import characterReducer from "./character/character.slice";
+import generalReducer from "./general/general.slice";
 
 export const store = configureStore({
   reducer: {
-    general: generalReducer,
     character: characterReducer,
+    general: generalReducer,
   },
 });
 

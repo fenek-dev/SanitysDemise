@@ -1,13 +1,12 @@
 import { RootState } from "@/app/store";
 import { ItemType } from "@/entities/items/types";
-import { Katana_weapon } from "@/entities/items/weapon/unique/Katana/katana.item";
 import { Item } from "@/shared/molecules/Item/Item";
 import { ItemModal } from "@/widgets/ItemModal/ItemModal";
-import { TabPanelUnstyled } from "@mui/base";
+import { TabPanel } from "@mui/base";
 import { Box } from "@mui/material";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import _ from "lodash";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 
 const MAX_BACKPACK_CAPACITY = 6;
@@ -16,22 +15,22 @@ export const Backpack = () => {
   const { items } = useSelector((state: RootState) => state.character);
   const [selectedItem, setItem] = useState<ItemType | null>(null);
   return (
-    <TabPanelUnstyled value="backpack" component={AnimatePresence}>
+    <TabPanel value="backpack">
       <Box
-        component={motion.div}
-        initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        component={motion.div}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
         height="100%"
+        initial={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
       >
         <Box
+          bgcolor="rgba(var(--main-color-rgb), 0.9)"
           display="flex"
           flexDirection="column"
-          height="100%"
-          bgcolor="rgba(var(--main-color-rgb), 0.9)"
-          p="1rem"
           gap="1rem"
+          height="100%"
+          p="1rem"
         >
           {_.map(items, (item) => (
             <Item item={item} onClick={() => setItem(item)} />
@@ -45,12 +44,12 @@ export const Backpack = () => {
         </Box>
         {Boolean(selectedItem) && selectedItem && (
           <ItemModal
-            open={Boolean(open)}
-            onClose={() => setItem(null)}
             item={selectedItem}
+            onClose={() => setItem(null)}
+            open={Boolean(selectedItem)}
           />
         )}
       </Box>
-    </TabPanelUnstyled>
+    </TabPanel>
   );
 };

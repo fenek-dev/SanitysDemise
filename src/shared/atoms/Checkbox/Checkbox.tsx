@@ -1,5 +1,5 @@
-import React from "react";
 import { Checkbox as CheckboxComponent, CheckboxProps } from "@mui/material";
+import React from "react";
 
 import "./Checkbox.scss";
 
@@ -9,8 +9,8 @@ export const Checkbox = (props: React.PropsWithChildren<CheckboxProps>) => {
       sx={{
         color: "var(--main-color) !important",
         svg: {
-          width: "2.5rem",
           height: "2.5rem",
+          width: "2.5rem",
         },
       }}
       size="small"

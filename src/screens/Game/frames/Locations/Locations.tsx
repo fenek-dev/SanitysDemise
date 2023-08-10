@@ -1,23 +1,19 @@
+import { useFade } from "@/app/hooks/useFade";
 import { RootState } from "@/app/store";
 import {
   changeLocation,
   setCurrentEvent,
-  setCurrentScene,
 } from "@/app/store/general/general.slice";
-import { EventType } from "@/entities/events/types";
 import { getEventByChance } from "@/entities/events/utils";
 import { ALL_LOCATIONS, LOCATION_NAMES } from "@/entities/locations";
-import { LocationType } from "@/entities/locations/types";
 import { LocationsRows } from "@/screens/Game/frames/Locations/components/LocationsRows";
-import TabsUnstyled from "@mui/base/TabsUnstyled";
-import { Box } from "@mui/material";
-import { motion, useAnimate } from "framer-motion";
+import { Tabs } from "@mui/base";
 import _ from "lodash";
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { TabRows } from "./components/TabRows";
+
 import { MainSection } from "./components/MainSection";
-import { useFade } from "@/app/hooks/useFade";
+import { TabRows } from "./components/TabRows";
 
 export const Locations = () => {
   const { currentLocation } = useSelector((state: RootState) => state.general);
@@ -26,7 +22,7 @@ export const Locations = () => {
   const [tab, setTab] = useState<string>("");
 
   const handleChange = useCallback(
-    (_event: unknown, value: string | number | boolean | null) => {
+    (_event: unknown, value: boolean | null | number | string) => {
       setTab(value as string);
     },
     []
@@ -37,6 +33,7 @@ export const Locations = () => {
     animation(() => {
       dispatch(changeLocation(loc));
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onInvestigate = async () => {
@@ -47,27 +44,22 @@ export const Locations = () => {
   };
 
   return (
-    <TabsUnstyled
-      value={tab}
-      onChange={handleChange}
-      component={motion.div}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+    <Tabs
       style={{
         background: "black",
-        height: "100%",
-        width: "100%",
         display: "grid",
-        gridTemplateColumns: "1fr 5fr 1fr",
         gap: "1rem",
+        gridTemplateColumns: "1fr 5fr 1fr",
+        height: "100%",
         padding: "1rem",
+        width: "100%",
       }}
+      onChange={handleChange}
+      value={tab}
     >
       <LocationsRows
-        locations={_.values(ALL_LOCATIONS)}
         currentLocation={currentLocation}
+        locations={_.values(ALL_LOCATIONS)}
         onChangeLocation={onChangeLocation}
       />
       <MainSection
@@ -77,6 +69,6 @@ export const Locations = () => {
       />
 
       <TabRows />
-    </TabsUnstyled>
+    </Tabs>
   );
 };

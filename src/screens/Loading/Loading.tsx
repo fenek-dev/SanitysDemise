@@ -2,10 +2,10 @@ import { useLoadingContext } from "@/app/contexts/loading/loading.context";
 import { preloadImages } from "@/app/utils/images/preloadImages";
 import { Box } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useLayoutEffect } from "react";
+import { useEffect } from "react";
 
 export const Loading = () => {
-  const { images, setLoading, loading } = useLoadingContext();
+  const { images, loading, setLoading } = useLoadingContext();
 
   useEffect(() => {
     if (images) {
@@ -17,19 +17,19 @@ export const Loading = () => {
         setLoading(false);
       });
     }
-  }, [images]);
+  }, [images, setLoading]);
   return (
     <AnimatePresence>
       {loading && (
         <Box
-          component={motion.div}
-          initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className="full"
-          zIndex="100"
           bgcolor="white"
+          className="full"
+          component={motion.div}
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          zIndex="100"
         >
           Loading
         </Box>
@@ -39,11 +39,12 @@ export const Loading = () => {
 };
 
 export const usePreloadImages = (images: string[]) => {
-  const { setLoading, setImages, loading } = useLoadingContext();
+  const { loading, setImages, setLoading } = useLoadingContext();
 
   useEffect(() => {
     setLoading(true);
     setImages(images);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return loading && <div />;

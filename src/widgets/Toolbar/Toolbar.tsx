@@ -1,14 +1,14 @@
-import { Avatar, Box, Button, Typography } from "@mui/material";
-import React, { useCallback, useState } from "react";
-import { Link } from "react-router-dom";
-import { ReactComponent as Menu } from "@/app/assets/svgs/menu.svg";
 import { ReactComponent as Days } from "@/app/assets/svgs/days.svg";
 import { ReactComponent as Hours } from "@/app/assets/svgs/hours.svg";
-import { useTranslation } from "react-i18next";
-import { MenuModal } from "../MenuModal/MenuModal";
-import { useDispatch } from "react-redux";
-import { resetGeneralSlice } from "@/app/store/general/general.slice";
+import { ReactComponent as Menu } from "@/app/assets/svgs/menu.svg";
 import { resetCharacterSlice } from "@/app/store/character/character.slice";
+import { resetGeneralSlice } from "@/app/store/general/general.slice";
+import { Box, Typography } from "@mui/material";
+import { useCallback, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
+
+import { MenuModal } from "../MenuModal/MenuModal";
 
 export const Toolbar = () => {
   const { t } = useTranslation();
@@ -17,35 +17,35 @@ export const Toolbar = () => {
   const onExit = useCallback(() => {
     dispatch(resetGeneralSlice());
     dispatch(resetCharacterSlice());
-  }, []);
+  }, [dispatch]);
   return (
     <Box
-      height="3rem"
+      alignItems="center"
       bgcolor="rgba(0, 0, 0, 0.6)"
       borderBottom="3px solid var(--main-color)"
-      display="flex"
-      alignItems="center"
-      justifyContent="space-between"
       color="white"
+      display="flex"
+      height="3rem"
+      justifyContent="space-between"
       px="1rem"
     >
       <Menu
-        width="3rem"
+        cursor="pointer"
         height="3rem"
         onClick={() => setOpen(true)}
-        cursor="pointer"
+        width="3rem"
       />
       <Box display="flex" gap="2rem">
-        <Typography variant="h6" display="flex" alignItems="center">
+        <Typography alignItems="center" display="flex" variant="h6">
           {t("hours", { count: 16 })}
-          <Hours width="2rem" height="2rem" />
+          <Hours height="2rem" width="2rem" />
         </Typography>
-        <Typography variant="h6" display="flex" alignItems="center">
+        <Typography alignItems="center" display="flex" variant="h6">
           {t("days", { count: 1 })}
-          <Days width="2rem" height="2rem" />
+          <Days height="2rem" width="2rem" />
         </Typography>
       </Box>
-      <MenuModal open={open} onClose={() => setOpen(false)} onExit={onExit} />
+      <MenuModal onClose={() => setOpen(false)} onExit={onExit} open={open} />
     </Box>
   );
 };

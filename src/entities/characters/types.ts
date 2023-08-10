@@ -1,33 +1,32 @@
-import { TFunction } from "i18next";
-import { DIFFICULTIES } from "../maps/difficulties";
 import { ItemType } from "../items/types";
+import { DIFFICULTIES } from "../maps/difficulties";
 
 export interface CharacterType {
-  name: string;
-  shortDescription: string[];
-  image: string;
+  defaultEffects: unknown[];
+  defaultItems: ItemType[];
+  defaultMainStats: BasicMainStats;
   defaultSkillStats: BasicSkillStats;
   difficulty: keyof typeof DIFFICULTIES;
-  defaultMainStats: BasicMainStats;
-  defaultEffects: unknown[];
+  image: string;
   imageMap: CharacterImageMap;
-  defaultItems: ItemType[];
+  name: string;
+  shortDescription: string[];
 }
 
 export interface BasicMainStats {
   hp: number;
-  sp: number;
   maxHp: number;
   maxSp: number;
+  sp: number;
 }
 
 export interface BasicSkillStats {
-  strength: number;
-  dexterity: number;
-  intelligence: number;
   charisma: number;
+  dexterity: number;
   faith: number;
+  intelligence: number;
   perception: number;
+  strength: number;
 }
 
 export interface CharacterImageMap {

@@ -1,6 +1,5 @@
 import { Slot } from "@/shared/atoms/Slot/Slot";
 import { Box, Button } from "@mui/material";
-import React from "react";
 
 interface NewGameProps {
   close: () => void;
@@ -8,11 +7,11 @@ interface NewGameProps {
 
 export const NewGame = ({ close }: NewGameProps) => {
   return (
-    <Box display="flex" flexDirection="column" minWidth="100%" gap="2rem">
-      <Slot to="/character" onClick={close} />
-      <Slot to="/character" onClick={close} />
-      <Slot to="/character" onClick={close} />
-      <Button sx={{ mt: "4rem" }} onClick={close}>
+    <Box display="flex" flexDirection="column" gap="2rem" minWidth="100%">
+      <Slot onClick={close} to="/character" />
+      <Slot onClick={close} to="/character" />
+      <Slot onClick={close} to="/character" />
+      <Button onClick={close} sx={{ mt: "4rem" }}>
         Close
       </Button>
     </Box>

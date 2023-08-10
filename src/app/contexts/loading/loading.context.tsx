@@ -1,18 +1,18 @@
-export interface LoadingContextType {
-  loading: boolean;
-  images?: string[];
-  setLoading: (value: boolean) => void;
-  setImages: (value: string[]) => void;
-}
-
 import { createContext, useContext, useState } from "react";
+
+export interface LoadingContextType {
+  images?: string[];
+  loading: boolean;
+  setImages: (value: string[]) => void;
+  setLoading: (value: boolean) => void;
+}
 
 //create a context, with createContext api
 export const LoadingContext = createContext<LoadingContextType>({
   images: undefined,
   loading: false,
-  setLoading: () => null,
   setImages: () => null,
+  setLoading: () => null,
 });
 
 const LoadingContextProvider = ({
@@ -22,7 +22,7 @@ const LoadingContextProvider = ({
   const [images, setImages] = useState<string[]>();
 
   return (
-    <LoadingContext.Provider value={{ loading, setLoading, images, setImages }}>
+    <LoadingContext.Provider value={{ images, loading, setImages, setLoading }}>
       {children}
     </LoadingContext.Provider>
   );

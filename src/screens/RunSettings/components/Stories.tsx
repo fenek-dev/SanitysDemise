@@ -2,7 +2,6 @@ import { ALL_STORIES } from "@/entities/stories";
 import { CharacterMainStory } from "@/entities/stories/types";
 import { Box, Button, Typography } from "@mui/material";
 import _ from "lodash";
-import React from "react";
 import { useTranslation } from "react-i18next";
 
 interface StoriesProps {
@@ -11,7 +10,7 @@ interface StoriesProps {
   selectedStory: CharacterMainStory;
 }
 
-export const Stories = ({ name, selectedStory, onChoose }: StoriesProps) => {
+export const Stories = ({ name, onChoose, selectedStory }: StoriesProps) => {
   const { t } = useTranslation();
   return (
     <Box
@@ -22,30 +21,30 @@ export const Stories = ({ name, selectedStory, onChoose }: StoriesProps) => {
       pt="1rem"
     >
       <Typography
+        color="var(--white-main-color)"
         textAlign="center"
         variant="h4"
-        color="var(--white-main-color)"
       >
         {t("Choose a backstory")}
       </Typography>
       {_.map(ALL_STORIES[name], (story) => (
         <Button
-          key={story.name}
-          className="img-button"
-          data-checked={selectedStory.name === story.name}
-          onClick={() => onChoose(story)}
           sx={{
-            minWidth: "20rem",
             ":before": {
               background: `url("${story.image}") center center no-repeat`,
               backgroundSize: "cover",
             },
+            minWidth: "20rem",
           }}
+          className="img-button"
+          data-checked={selectedStory.name === story.name}
+          key={story.name}
+          onClick={() => onChoose(story)}
         >
           <Typography
-            variant="h6"
-            fontWeight="medium"
             className="img-button-text"
+            fontWeight="medium"
+            variant="h6"
           >
             {t(story.name)} (0/{story.ends})
           </Typography>

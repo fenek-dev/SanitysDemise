@@ -1,8 +1,6 @@
-import {
-  EmptyCharacter,
-  EmptyMainStats,
-  EmptySkillStats,
-} from "@/entities/characters";
+import type { PayloadAction } from "@reduxjs/toolkit";
+
+import { EmptyMainStats, EmptySkillStats } from "@/entities/characters";
 import { Lucian } from "@/entities/characters/Lucian/character";
 import {
   BasicMainStats,
@@ -11,48 +9,46 @@ import {
 } from "@/entities/characters/types";
 import { ItemType } from "@/entities/items/types";
 import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
-import _ from "lodash";
 
 export interface CharacterState {
-  selectedCharacter: CharacterType;
   currentMainStats: BasicMainStats;
   currentSkillStats: BasicSkillStats;
   effects: unknown[];
   items: ItemType[];
+  selectedCharacter: CharacterType;
 }
 
 const initialState: CharacterState = {
-  selectedCharacter: Lucian,
   currentMainStats: EmptyMainStats,
   currentSkillStats: EmptySkillStats,
   effects: [],
   items: [],
+  selectedCharacter: Lucian,
 };
 
 export const CharacterSlice = createSlice({
-  name: "Character",
   initialState,
+  name: "Character",
   reducers: {
     chooseCharacter: (state, action: PayloadAction<CharacterType>) => {
       state.selectedCharacter = action.payload;
     },
+    resetCharacterSlice: () => initialState,
+    setCharacter: (_state, action: PayloadAction<CharacterState>) =>
+      action.payload,
     startNewGame: (state) => {
       state.currentMainStats = state.selectedCharacter.defaultMainStats;
       state.currentSkillStats = state.selectedCharacter.defaultSkillStats;
       state.items = state.selectedCharacter.defaultItems;
     },
-    setCharacter: (_state, action: PayloadAction<CharacterState>) =>
-      action.payload,
-    resetCharacterSlice: () => initialState,
   },
 });
 
 export const {
   chooseCharacter,
-  startNewGame,
-  setCharacter,
   resetCharacterSlice,
+  setCharacter,
+  startNewGame,
 } = CharacterSlice.actions;
 
 export default CharacterSlice.reducer;

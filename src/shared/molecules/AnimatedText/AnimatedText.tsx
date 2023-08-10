@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { useAnimation, motion } from "framer-motion";
 import { Typography, TypographyProps } from "@mui/material";
+import { motion, useAnimation } from "framer-motion";
 import _ from "lodash";
+import { useEffect, useState } from "react";
 
 // const Title = styled.h2`
 //   font-size: 3rem;
@@ -14,15 +14,15 @@ import _ from "lodash";
 // `;
 
 interface AnimatedTextProps {
+  speed?: number;
   text?: string;
   variant?: TypographyProps["variant"];
-  speed?: number;
 }
 
 export const AnimatedText = ({
+  speed = 0.01,
   text,
   variant = "body1",
-  speed = 0.01,
 }: AnimatedTextProps) => {
   const [currentText, setCurrentText] = useState(text);
 
@@ -34,50 +34,50 @@ export const AnimatedText = ({
       setCurrentText(text);
     };
     animate();
-  }, [text]);
+  }, [ctrls, text]);
 
   useEffect(() => {
     const animate = async () => {
       await ctrls.start("visible");
     };
     animate();
-  }, [currentText]);
+  }, [ctrls, currentText]);
 
   const characterAnimation = (delay: number) => ({
     hidden: {
       opacity: 0,
-      y: `0.25em`,
       transition: {
         delay: speed * delay,
       },
+      y: `0.25em`,
     },
     visible: {
       opacity: 1,
-      y: `0em`,
       transition: {
         delay: speed * delay,
         duration: 1,
         ease: [0.2, 0.65, 0.3, 0.9],
       },
+      y: `0em`,
     },
   });
 
   return (
     <Typography
-      variant={variant}
       sx={{
         width: "100%",
       }}
+      variant={variant}
     >
       {_.split(currentText, "").map((character, index) => {
         if (character === "↵") return <br />;
         return (
           <Typography
-            component={motion.span}
-            variant={variant}
-            key={index}
-            initial="hidden"
             animate={ctrls}
+            component={motion.span}
+            initial="hidden"
+            key={index}
+            variant={variant}
             variants={characterAnimation(index)}
           >
             {character}

@@ -11,8 +11,8 @@ export const ALL_STORIES = {
 };
 
 export const EmptyCharacterStory: CharacterMainStory = {
-  name: "",
+  description: "",
   ends: 0,
   image: "",
-  description: "",
+  name: "",
 };

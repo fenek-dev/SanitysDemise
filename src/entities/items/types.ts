@@ -1,20 +1,20 @@
 export type ItemRarities = "common" | "unique";
 
-export type ItemTypes = "weapon" | "consumable";
+export type ItemTypes = "consumable" | "weapon";
 
 export interface ItemType {
-  name: string;
+  cost: number;
   description: string;
+  equipable: boolean;
   icon: string;
-  type: ItemTypes;
+  name: string;
   rarity: ItemRarities;
   saleable: boolean;
   throwable: boolean;
-  equipable: boolean;
-  cost: number;
+  type: ItemTypes;
 }
 
 export interface WeaponType extends ItemType {
-  type: "weapon";
   dmg_up: number;
+  type: "weapon";
 }

@@ -3,18 +3,14 @@ import { STATS_MAP } from "@/entities/maps";
 import { DIFFICULTIES_MAP } from "@/entities/maps/difficulties";
 import {
   Box,
-  Button,
-  CardActions,
   Card as CardComponent,
   CardContent,
-  CardMedia,
   Tooltip,
   Typography,
 } from "@mui/material";
 import _ from "lodash";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 
 interface CardProps {
   character: CharacterType;
@@ -22,46 +18,46 @@ interface CardProps {
 }
 
 export const CharacterCard = ({
-  children,
   character,
+  children,
 }: React.PropsWithChildren<CardProps>) => {
   const { t } = useTranslation();
 
   return (
     <CardComponent
       sx={{
-        width: "20rem",
-        position: "relative",
         background: "none !important",
+        position: "relative",
+        width: "20rem",
       }}
     >
       <CardContent
         sx={{
-          padding: "1rem !important",
+          backgroundColor: "var(--main-color)",
+          color: "var(--white-main-color) !important",
           display: "flex",
           flexDirection: "column",
-          color: "var(--white-main-color) !important",
           fontFamily: "RussoOne !important",
-          backgroundColor: "var(--main-color)",
-          transition: "0.3s",
           opacity: 0.8,
+          padding: "1rem !important",
+          transition: "0.3s",
         }}
       >
         <Typography
           gutterBottom
-          variant="h3"
-          textAlign="center"
           lineHeight={0.5}
+          textAlign="center"
+          variant="h3"
         >
           {t(character.name)}
         </Typography>
         <Box
+          className="russo"
           display="grid"
           gridTemplateColumns="repeat(2, 1fr)"
           justifyContent="space-between"
           padding="0"
           width="100%"
-          className="russo"
           zIndex="2"
         >
           {_.map(
@@ -70,22 +66,22 @@ export const CharacterCard = ({
               const firstCol = (index & 1) === 0;
               return (
                 <Box
+                  alignItems="center"
+                  borderRight="0"
                   display="flex"
                   flexDirection={firstCol ? "row-reverse" : "row"}
-                  justifyContent="flex-end"
-                  alignItems="center"
                   gap="0.5rem"
+                  justifyContent="flex-end"
                   margin="0 !important"
-                  borderRight="0"
                 >
                   <Tooltip
-                    title={t(STATS_MAP[statname].desc)}
                     disableInteractive
+                    title={t(STATS_MAP[statname].desc)}
                   >
                     <Typography
-                      variant="button"
-                      sx={{ textDecoration: "underline" }}
                       display="inline-block"
+                      sx={{ textDecoration: "underline" }}
+                      variant="button"
                     >
                       {t(STATS_MAP[statname].short)}
                     </Typography>
@@ -99,32 +95,32 @@ export const CharacterCard = ({
         <Box
           display="flex"
           flexDirection="column"
-          padding="0"
           marginLeft="0 !important"
           marginTop="1rem"
-          width="100%"
+          padding="0"
           position="absolute"
           top="4rem"
+          width="100%"
           zIndex="1"
         >
           {_.map(
             _.dropRight(_.entries(character.defaultMainStats), 2),
             ([statname, stat], index) => (
               <Box
-                textAlign="center"
-                margin="0 !important"
-                textTransform="uppercase"
                 borderRight="0"
                 className="russo"
-                sx={{ transform: "translateX(-12px)" }}
                 lineHeight={1}
+                margin="0 !important"
+                sx={{ transform: "translateX(-12px)" }}
+                textAlign="center"
+                textTransform="uppercase"
               >
                 <span>
                   <span
                     style={{
-                      fontSize: "3rem",
                       color:
                         index === 0 ? "var(--hp-color)" : "var(--sp-color)",
+                      fontSize: "3rem",
                     }}
                   >
                     {stat}
@@ -136,11 +132,11 @@ export const CharacterCard = ({
           )}
         </Box>
         <Box
-          mt="1rem"
-          textAlign="center"
           display="flex"
           flexDirection="column"
           gap="0.5rem"
+          mt="1rem"
+          textAlign="center"
         >
           {children}
         </Box>

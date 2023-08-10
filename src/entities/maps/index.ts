@@ -1,28 +1,28 @@
-type StatMapType = Record<string, { short: string; desc: string }>;
+type StatMapType = Record<string, { desc: string; short: string }>;
 
 export const STATS_MAP: StatMapType = {
   charisma: {
-    short: "CHR",
     desc: "Charisma - Increase change to deal with people",
+    short: "CHR",
   },
   dexterity: {
-    short: "DEX",
     desc: "Dexterity - Increase attack speed and chance to doge attacks",
+    short: "DEX",
   },
   faith: {
-    short: "FTH",
     desc: "Faith - ",
+    short: "FTH",
   },
   intelligence: {
-    short: "INT",
     desc: "Intelligence - Increase magic damage",
+    short: "INT",
   },
   perception: {
-    short: "PRC",
     desc: "Perception - Increase chance to find items",
+    short: "PRC",
   },
   strength: {
-    short: "STR",
     desc: "Strength - Increase attack damage",
+    short: "STR",
   },
 };
