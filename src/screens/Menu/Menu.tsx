@@ -1,13 +1,9 @@
 import "./Menu.scss";
-import { Modal } from "@/shared/atoms/Modal/Modal";
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Settings } from "@/features/Settings";
-import { NewGame } from "@/features/NewGame";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-const { ipcRenderer } = window.require("electron");
 
 function Menu() {
   const [bg, setBg] = useState(0);
@@ -49,7 +45,7 @@ function Menu() {
         <Button
           className="img-button quit-btn"
           variant="outlined"
-          onClick={() => ipcRenderer.send("close")}
+          // onClick={() => ipcRenderer.send("close")}
         >
           <span>{t("Quit")}</span>
         </Button>

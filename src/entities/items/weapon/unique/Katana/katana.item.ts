@@ -1,4 +1,4 @@
-import { ItemType, WeaponType } from "../../../types";
+import { WeaponType } from "../../../types";
 
 import icon from "./icon.png";
 

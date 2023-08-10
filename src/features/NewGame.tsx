@@ -1,6 +1,5 @@
 import { Slot } from "@/shared/atoms/Slot/Slot";
 import { Box, Button } from "@mui/material";
-import React from "react";
 
 interface NewGameProps {
   close: () => void;

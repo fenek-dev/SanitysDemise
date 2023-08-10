@@ -2,7 +2,6 @@ import { EventType } from "@/entities/events/types";
 import { ALL_LOCATIONS, LOCATION_NAMES } from "@/entities/locations";
 import { HomeLocation } from "@/entities/locations/home/home.location";
 import { LocationType } from "@/entities/locations/types";
-import { OpeningScene } from "@/entities/scenes/opening/opening.scene";
 import { SceneType } from "@/entities/scenes/types";
 import { EmptyCharacterStory } from "@/entities/stories";
 import { CharacterMainStory } from "@/entities/stories/types";

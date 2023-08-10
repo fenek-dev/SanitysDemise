@@ -1,8 +1,4 @@
-import {
-  EmptyCharacter,
-  EmptyMainStats,
-  EmptySkillStats,
-} from "@/entities/characters";
+import { EmptyMainStats, EmptySkillStats } from "@/entities/characters";
 import { Lucian } from "@/entities/characters/Lucian/character";
 import {
   BasicMainStats,

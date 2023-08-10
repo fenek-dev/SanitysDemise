@@ -1,4 +1,3 @@
-import { Box, Typography } from "@mui/material";
 import { CharacterType } from "../types";
 import image from "./Lucian_bg.png";
 import defaultImage from "./Lucian_default.png";

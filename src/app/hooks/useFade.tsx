@@ -1,5 +1,4 @@
 import { useAnimate } from "framer-motion";
-import React from "react";
 
 export const useFade = (duration = 0.3) => {
   const [scope, animate] = useAnimate();

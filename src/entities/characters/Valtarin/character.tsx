@@ -1,11 +1,8 @@
-import { Box, Typography } from "@mui/material";
 import { CharacterType } from "../types";
 import image from "./Valtarin_bg.png";
 import defaultImage from "./Valtarin_default.png";
 import { DIFFICULTIES } from "@/entities/maps/difficulties";
-import { RevengeStory } from "@/entities/stories/ValtarinStories/Revenge.story";
 import _ from "lodash";
-import { ALL_STORIES } from "@/entities/stories";
 
 export const Valtarin: CharacterType = {
   name: "Valtarin",

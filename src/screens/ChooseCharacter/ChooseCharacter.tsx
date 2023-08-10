@@ -1,11 +1,10 @@
-import React from "react";
 import "./ChooseCharacter.scss";
 import { Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { CharacterCard } from "@/shared/molecules/CharacterCard/CharacterCard";
 import { ALL_CHARACTERS } from "@/entities/characters";
 import _ from "lodash";
-import { motion, useAnimate } from "framer-motion";
+import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { CharacterType } from "@/entities/characters/types";
 import { chooseCharacter } from "@/app/store/character/character.slice";

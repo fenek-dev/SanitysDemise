@@ -1,11 +1,8 @@
-import { Avatar } from "@/widgets/Avatar/Avatar";
 import { Locations } from "@/screens/Game/frames/Locations/Locations";
 import { Scenes } from "@/widgets/Scenes/Scenes";
-import { Sidebar } from "@/widgets/Sidebar/Sidebar";
 import { Toolbar } from "@/widgets/Toolbar/Toolbar";
-import { Box, Grid } from "@mui/material";
+import { Box } from "@mui/material";
 import { motion } from "framer-motion";
-import React from "react";
 import { Events } from "./frames/Events";
 import { useSelector } from "react-redux";
 import { RootState } from "@/app/store";

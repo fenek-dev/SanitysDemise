@@ -1,5 +1,4 @@
 import "./app/translation";
-import "./app/samples/node-api";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { HashRouter } from "react-router-dom";

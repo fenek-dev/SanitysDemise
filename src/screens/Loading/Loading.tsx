@@ -2,7 +2,7 @@ import { useLoadingContext } from "@/app/contexts/loading/loading.context";
 import { preloadImages } from "@/app/utils/images/preloadImages";
 import { Box } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useLayoutEffect } from "react";
+import { useEffect } from "react";
 
 export const Loading = () => {
   const { images, setLoading, loading } = useLoadingContext();

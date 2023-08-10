@@ -1,9 +1,6 @@
-import { EventType } from "@/entities/events/types";
-import { getEventByChance } from "@/entities/events/utils";
 import { LOCATION_NAMES } from "@/entities/locations";
 import { LocationType } from "@/entities/locations/types";
-import { Avatar, Box, Button, Typography } from "@mui/material";
-import { AnimatePresence, motion } from "framer-motion";
+import { Box, Button, Typography } from "@mui/material";
 import _ from "lodash";
 import React from "react";
 import { useTranslation } from "react-i18next";

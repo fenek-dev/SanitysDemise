@@ -1,4 +1,3 @@
-import { TFunction } from "i18next";
 import { DIFFICULTIES } from "../maps/difficulties";
 import { ItemType } from "../items/types";
 

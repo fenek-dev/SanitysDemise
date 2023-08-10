@@ -3,18 +3,14 @@ import { STATS_MAP } from "@/entities/maps";
 import { DIFFICULTIES_MAP } from "@/entities/maps/difficulties";
 import {
   Box,
-  Button,
-  CardActions,
   Card as CardComponent,
   CardContent,
-  CardMedia,
   Tooltip,
   Typography,
 } from "@mui/material";
 import _ from "lodash";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 
 interface CardProps {
   character: CharacterType;

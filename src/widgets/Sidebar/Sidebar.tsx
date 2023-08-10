@@ -1,39 +1,33 @@
 import { Avatar, Box } from "@mui/material";
-import React, { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import backpack from "./icons/backpack.png";
 import kit from "./icons/kit.png";
 import { AnimatePresence, motion } from "framer-motion";
 import "./Sidebar.scss";
-import {
-  TabPanelUnstyled,
-  TabUnstyled,
-  TabsListUnstyled,
-  TabsUnstyled,
-} from "@mui/base";
+import { Tab, TabsList, Tabs } from "@mui/base";
 import { Backpack } from "./Tabs/Backpack";
 
 export const Sidebar = () => {
   const [open, setOpen] = useState<string>("backpack");
 
-  const handleChange = (_event: unknown, value: string | number | boolean) => {
+  const handleChange = (
+    _event: SyntheticEvent<Element, Event> | null,
+    value: any
+  ) => {
     setOpen(value as string);
   };
 
   return (
     <Box className="sidebar">
-      <TabsUnstyled
-        value={open}
-        onChange={handleChange}
-        className="sidebar-tabs"
-      >
-        <TabsListUnstyled className="sidebar-tabs-list">
-          <TabUnstyled component="div" value="backpack" className="sidebar-tab">
+      <Tabs value={open} onChange={handleChange} className="sidebar-tabs">
+        <TabsList className="sidebar-tabs-list">
+          <Tab value="backpack" className="sidebar-tab">
             <Avatar src={backpack} variant="rounded" />
-          </TabUnstyled>
-          <TabUnstyled component="div" value="kit" className="sidebar-tab">
+          </Tab>
+          <Tab value="kit" className="sidebar-tab">
             <Avatar src={kit} variant="rounded" />
-          </TabUnstyled>
-        </TabsListUnstyled>
+          </Tab>
+        </TabsList>
         <AnimatePresence>
           <motion.div
             className="sidebar-tabs-content"
@@ -44,7 +38,7 @@ export const Sidebar = () => {
             <Backpack />
           </motion.div>
         </AnimatePresence>
-      </TabsUnstyled>
+      </Tabs>
     </Box>
   );
 };

@@ -1,7 +1,6 @@
 import { ITEM_RARITY_COLOR } from "@/entities/items";
 import { ItemType } from "@/entities/items/types";
-import { Avatar, Box, IconButton, Modal, Typography } from "@mui/material";
-import React from "react";
+import { Box, Modal, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 import { ReactComponent as Equip } from "@/app/assets/modal/equip.svg";

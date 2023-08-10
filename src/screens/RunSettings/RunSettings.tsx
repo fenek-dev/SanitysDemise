@@ -1,4 +1,3 @@
-import React from "react";
 import "./RunSettings.scss";
 import { Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";

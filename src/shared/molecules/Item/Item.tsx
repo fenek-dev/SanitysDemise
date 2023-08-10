@@ -1,7 +1,6 @@
 import { ITEM_RARITY_COLOR } from "@/entities/items";
 import { ItemType } from "@/entities/items/types";
 import { Box, Typography } from "@mui/material";
-import React from "react";
 import { useTranslation } from "react-i18next";
 
 interface ItemProps {

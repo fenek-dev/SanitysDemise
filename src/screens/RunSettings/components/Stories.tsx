@@ -2,7 +2,6 @@ import { ALL_STORIES } from "@/entities/stories";
 import { CharacterMainStory } from "@/entities/stories/types";
 import { Box, Button, Typography } from "@mui/material";
 import _ from "lodash";
-import React from "react";
 import { useTranslation } from "react-i18next";
 
 interface StoriesProps {

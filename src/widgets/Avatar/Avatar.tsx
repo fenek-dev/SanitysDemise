@@ -1,6 +1,4 @@
-import { BasicMainStats, CharacterType } from "@/entities/characters/types";
 import { Box, Card, CardMedia, Typography } from "@mui/material";
-import React from "react";
 import "./Avatar.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "@/app/store";

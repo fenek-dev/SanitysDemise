@@ -1,9 +1,9 @@
 import { RootState } from "@/app/store";
 import { Box } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
-import { AnimatePresence, motion, useAnimate } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { AnimatedText } from "@/shared/molecules/AnimatedText/AnimatedText";
 import { removeCurrentScene } from "@/app/store/general/general.slice";
 import { useTranslation } from "react-i18next";

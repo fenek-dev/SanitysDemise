@@ -6,9 +6,9 @@ import { EVENT_STAGE_RESERVED_NAMES } from "@/entities/events";
 import { EventStageButtonType } from "@/entities/events/types";
 import { AnimatedText } from "@/shared/molecules/AnimatedText/AnimatedText";
 import { Box, Button, Typography } from "@mui/material";
-import { motion, useAnimate } from "framer-motion";
+import { motion } from "framer-motion";
 import _ from "lodash";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 

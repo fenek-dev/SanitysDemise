@@ -1,6 +1,5 @@
-import { Avatar, Box, Button, Typography } from "@mui/material";
-import React, { useCallback, useState } from "react";
-import { Link } from "react-router-dom";
+import { Box, Typography } from "@mui/material";
+import { useCallback, useState } from "react";
 import { ReactComponent as Menu } from "@/app/assets/svgs/menu.svg";
 import { ReactComponent as Days } from "@/app/assets/svgs/days.svg";
 import { ReactComponent as Hours } from "@/app/assets/svgs/hours.svg";
